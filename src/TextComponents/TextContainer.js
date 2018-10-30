@@ -53,7 +53,6 @@ class TextContainer extends Component {
   }
 
   render(){
-    console.log(this.handleMainContainerClass());
     const index = this.state.currentLine
     return (
       <div id="main-text-container" className={this.handleMainContainerClass()}>
