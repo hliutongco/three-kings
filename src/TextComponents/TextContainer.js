@@ -54,6 +54,7 @@ class TextContainer extends Component {
 
   render(){
     const index = this.state.currentLine
+    
     return (
       <div id="main-text-container" className={this.handleMainContainerClass()}>
         <div id="username-container" onClick={this.handleClick}>
