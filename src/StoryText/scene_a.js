@@ -1,4 +1,5 @@
 import calm from '../music/calm.mp3';
+import fan from '../soundEffects/electric-fan.mp3';
 
 export const scene_A = [
   { displayName: "Jinghua", special: null, background: null, music: null, soundEffect: null, text: "\"Hey! Are you awake?\"" },
@@ -18,9 +19,9 @@ export const scene_A = [
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "If the ritual doesn't work, maybe I'll find some way to move on."},
   { displayName: null, special: null, background: "bedroom", music: null, soundEffect: null, text: "But even though I have no reason to feel so confident, I just know this'll work."},
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "Jinghua leads me from the bedroom into the hallway."},
-  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "I can already hear the whirring of the electric fan inside the dark room."},
-  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "Though we draw nearer, the shadows are too thick for the light to illuminate the room's interior."},
-  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "We pause at the threshold."},
-  { displayName: "Jinghua", special: null, background: null, music: null, soundEffect: null, text: "\"Are you ready? Remember, you can always call me if anything goes wrong.\""},
-  { displayName: null, special: null, background: "none", music: null, soundEffect: null, text: "I reply with a wordless nod. She pushes me into the dark room at exactly 3:33am."},
+  { displayName: null, special: null, background: null, music: null, soundEffect: fan, text: "I can already hear the whirring of the electric fan inside the dark room."},
+  { displayName: null, special: null, background: null, music: null, soundEffect: fan, text: "Though we draw nearer, the shadows are too thick for the light to illuminate the room's interior."},
+  { displayName: null, special: null, background: null, music: null, soundEffect: fan, text: "We pause at the threshold."},
+  { displayName: "Jinghua", special: null, background: null, music: null, soundEffect: fan, text: "\"Are you ready? Remember, you can always call me if anything goes wrong.\""},
+  { displayName: null, special: null, background: "none", music: null, soundEffect: fan, text: "I reply with a wordless nod. She pushes me into the dark room at exactly 3:33am."},
 ]

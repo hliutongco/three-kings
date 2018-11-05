@@ -40,6 +40,20 @@ export const CHANGE_SPECIAL_COMPONENT = (command) => {
   }
 }
 
+export const TOGGLE_SAVE = (boolean) => {
+  return {
+    type: "TOGGLE_SAVE",
+    payload: boolean
+  }
+}
+
+export const UPDATE_SAVE_DATA = (data) => {
+  return {
+    type: "UPDATE_SAVE_DATA",
+    payload: data
+  }
+}
+
 export const SET_USERNAME = (username) => {
   return {
     type: "SET_USERNAME",

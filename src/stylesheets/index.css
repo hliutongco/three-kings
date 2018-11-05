@@ -9,6 +9,29 @@ body {
   visibility: hidden;
 }
 
+#menu-bar{
+  display: flex;
+  flex-direction: column;
+  max-width: 15vw;
+  position: fixed;
+  right: 1vw;
+}
+
+button {
+  padding: 1vh 2vw;
+  border: 2px solid white;
+  border-radius: 5px;
+  background: none;
+  color: white;
+  font-family: monospace;
+  font-size: 2vw;
+  margin-top: 1vh;
+}
+
+button:focus {
+  outline: none;
+}
+
 #set-username {
   z-index: 1;
   position: fixed;

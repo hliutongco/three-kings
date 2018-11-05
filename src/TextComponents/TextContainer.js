@@ -12,6 +12,8 @@ class TextContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps){
+    if(this.props.save) 
+
     if(this.props.chapterNumber !== nextProps.chapterNumber){
       this.setState({currentLine: 0, currentChapter: chapterData[nextProps.chapterNumber], transition: true},
       () => this.handleTransition())
@@ -54,7 +56,7 @@ class TextContainer extends Component {
 
   render(){
     const index = this.state.currentLine
-    
+
     return (
       <div id="main-text-container" className={this.handleMainContainerClass()}>
         <div id="username-container" onClick={this.handleClick}>
@@ -77,7 +79,8 @@ const mapStateToProps = (state) => {
   return {
     name: state.username,
     otherDisplayName: state.otherDisplayName,
-    chapterNumber: state.chapterNumber
+    chapterNumber: state.chapterNumber,
+    save: state.save
   }
 }
 

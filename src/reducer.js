@@ -5,7 +5,9 @@ const initialState = {
   otherDisplayName: null,
   soundEffect: null,
   music: null,
-  chapterNumber: 0
+  chapterNumber: 0,
+  save: false,
+  saveData: null
 }
 
 export const reducer = (state = initialState, action) => {
@@ -37,6 +39,14 @@ export const reducer = (state = initialState, action) => {
     case "CHANGE_SPECIAL_COMPONENT":
       return { ...state,
         specialComponent: action.payload
+      }
+    case "TOGGLE_SAVE":
+      return { ...state,
+        save: action.payload
+      }
+    case "UPDATE_SAVE_DATA":
+      return { ...state,
+        saveData: action.payload
       }
     default:
       return state
