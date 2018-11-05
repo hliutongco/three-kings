@@ -2,21 +2,28 @@ import React, {Component} from 'react';
 import Text from './Text'
 import {chapterData} from '../StoryText/chapterData'
 import {connect} from 'react-redux';
-import {GET_NEXT_CHAPTER} from '../actions/index'
+import {GET_CHAPTER, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
     currentLine: 0,
-    currentChapter: chapterData[0],
+    currentChapter: 0,
     transition: false
   }
 
   componentWillReceiveProps(nextProps){
-    if(this.props.save) 
+    if(nextProps.save) {
+      this.props.toggleSave()
+      this.props.saveGame({chapterNumber: this.state.currentChapter, line: this.state.currentLine})
+    }
 
-    if(this.props.chapterNumber !== nextProps.chapterNumber){
-      this.setState({currentLine: 0, currentChapter: chapterData[nextProps.chapterNumber], transition: true},
-      () => this.handleTransition())
+    if(nextProps.load) {
+      this.setState({
+        currentChapter: this.props.saveData.chapterNumber,
+        currentLine: this.props.saveData.line
+      }, () => {
+          this.props.toggleLoad()
+        })
     }
   }
 
@@ -27,8 +34,11 @@ class TextContainer extends Component {
   }
 
   handleClick = () => {
-    if(this.state.currentLine >= this.state.currentChapter.length - 1){
-      this.props.changeChapter(this.props.chapterNumber)
+    if(this.state.currentLine >= chapterData[this.state.currentChapter].length - 1){
+      this.setState({currentLine: 0, currentChapter: this.state.currentChapter + 1, transition: true},
+      () => {
+      this.handleTransition()
+    })
     }
     else {
       this.setState((prevState) => {
@@ -55,6 +65,7 @@ class TextContainer extends Component {
   }
 
   render(){
+    const currentChapter = chapterData[this.state.currentChapter]
     const index = this.state.currentLine
 
     return (
@@ -63,12 +74,12 @@ class TextContainer extends Component {
           {this.props.otherDisplayName ? this.props.otherDisplayName : this.props.name}
         </div>
         <div id="text-container" onClick={this.handleClick}>
-          <Text currentLine={this.state.currentChapter[index].text}
-          displayName={this.state.currentChapter[index].displayName}
-          background={this.state.currentChapter[index].background}
-          music={this.state.currentChapter[index].music}
-          soundEffect={this.state.currentChapter[index].soundEffect}
-          special={this.state.currentChapter[index].special} />
+          <Text currentLine={currentChapter[index].text}
+          displayName={currentChapter[index].displayName}
+          background={currentChapter[index].background}
+          music={currentChapter[index].music}
+          soundEffect={currentChapter[index].soundEffect}
+          special={currentChapter[index].special} />
         </div>
       </div>
     )
@@ -80,13 +91,17 @@ const mapStateToProps = (state) => {
     name: state.username,
     otherDisplayName: state.otherDisplayName,
     chapterNumber: state.chapterNumber,
-    save: state.save
+    save: state.save,
+    load: state.load,
+    saveData: state.saveData
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeChapter: (chapterNumber) => dispatch(GET_NEXT_CHAPTER(chapterNumber))
+    saveGame: (data) => dispatch(UPDATE_SAVE_DATA(data)),
+    toggleSave: () => dispatch(TOGGLE_SAVE(false)),
+    toggleLoad: () => dispatch(TOGGLE_LOAD(false))
   }
 }
 

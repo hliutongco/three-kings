@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {TOGGLE_SAVE} from '../actions/index';
+import {TOGGLE_SAVE, TOGGLE_LOAD} from '../actions/index';
 
 
 
@@ -11,9 +11,9 @@ const MenuBar = (props) => {
   }
 
   const handleLoadClick = () => {
-    console.log("load click");
+    props.toggleLoad();
   }
-  
+
   return (
     <div id="menu-bar">
       <button onClick={handleSaveClick}> Save </button>
@@ -24,7 +24,8 @@ const MenuBar = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleSave: () => dispatch(TOGGLE_SAVE(true))
+    toggleSave: () => dispatch(TOGGLE_SAVE(true)),
+    toggleLoad: () => dispatch(TOGGLE_LOAD(true)),
   }
 }
 

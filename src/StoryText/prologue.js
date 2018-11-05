@@ -9,11 +9,11 @@ export const prologueData = [
 
   { displayName: null, special: null, background: "forest-clearing", music: null, soundEffect: null, text: "In the dream, I'm lying on the ground, unconscious. Rivulets of blood seep from my ruptured flesh and soak the dry earth beneath me." },
 
-  { displayName: null, special: null, background: null, music: null, soundEffect: ringtone, text: "Several calls blare out from the phone in my coat pocket, all of which go unanswered." },
+  { displayName: null, special: null, background: "forest-clearing", music: null, soundEffect: ringtone, text: "Several calls blare out from the phone in my coat pocket, all of which go unanswered." },
 
-  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "Then, just as the first rays of sunlight crest over the Eldridge Hills, the person watching me suddenly stands up, turns their back to me, and walks away." },
+  { displayName: null, special: null, background: "forest-clearing", music: null, soundEffect: null, text: "Then, just as the first rays of sunlight crest over the Eldridge Hills, the person watching me suddenly stands up, turns their back to me, and walks away." },
 
-  { displayName: null, special: null, background: "none", music: null, soundEffect: null, text: "And then the dream ends." },
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "And then the dream ends." },
 
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "What does it mean? Was there really someone watching me that night?" },
 

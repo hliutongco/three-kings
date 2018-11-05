@@ -4,10 +4,11 @@ import {CHANGE_DISPLAY_NAME, CHANGE_BACKGROUND, CHANGE_SPECIAL_COMPONENT, CHANGE
 
 class Text extends Component {
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
     if (this.props.displayName !== nextProps.displayName) this.props.changeDisplayName(nextProps.displayName)
     if (nextProps.special) this.props.changeSpecialComponent(nextProps.special)
-    if (nextProps.background) this.props.changeBackground(nextProps.background)
-    if (nextProps.music) this.props.changeMusic(nextProps.music)
+    if (this.props.background !== nextProps.background) this.props.changeBackground(nextProps.background)
+    if (this.props.music !== nextProps.music) this.props.changeMusic(nextProps.music)
     if (this.props.soundEffect !== nextProps.soundEffect) this.props.changeSoundEffect(nextProps.soundEffect)
   }
 

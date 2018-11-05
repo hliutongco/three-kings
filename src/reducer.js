@@ -1,3 +1,5 @@
+import {chapterData} from './StoryText/chapterData'
+
 const initialState = {
   background: null,
   specialComponent: null,
@@ -5,9 +7,9 @@ const initialState = {
   otherDisplayName: null,
   soundEffect: null,
   music: null,
-  chapterNumber: 0,
   save: false,
-  saveData: null
+  load: false,
+  saveData: {chapterNumber: 0, line: 0}
 }
 
 export const reducer = (state = initialState, action) => {
@@ -15,10 +17,6 @@ export const reducer = (state = initialState, action) => {
     case "SET_USERNAME":
       return { ...state,
         username: action.payload
-      }
-    case "GET_NEXT_CHAPTER":
-      return { ...state,
-        chapterNumber: action.payload
       }
     case "CHANGE_DISPLAY_NAME":
       return { ...state,
@@ -43,6 +41,10 @@ export const reducer = (state = initialState, action) => {
     case "TOGGLE_SAVE":
       return { ...state,
         save: action.payload
+      }
+    case "TOGGLE_LOAD":
+      return { ...state,
+        load: action.payload
       }
     case "UPDATE_SAVE_DATA":
       return { ...state,

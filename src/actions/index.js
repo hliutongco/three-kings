@@ -5,13 +5,6 @@ export const CHANGE_DISPLAY_NAME = (name) => {
   }
 }
 
-export const GET_NEXT_CHAPTER = (chapterNumber) => {
-  return {
-    type: "GET_NEXT_CHAPTER",
-    payload: chapterNumber + 1
-  }
-}
-
 export const CHANGE_BACKGROUND = (background) => {
   return {
     type: "CHANGE_BACKGROUND",
@@ -43,6 +36,13 @@ export const CHANGE_SPECIAL_COMPONENT = (command) => {
 export const TOGGLE_SAVE = (boolean) => {
   return {
     type: "TOGGLE_SAVE",
+    payload: boolean
+  }
+}
+
+export const TOGGLE_LOAD = (boolean) => {
+  return {
+    type: "TOGGLE_LOAD",
     payload: boolean
   }
 }
