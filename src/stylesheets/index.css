@@ -9,10 +9,19 @@ body {
   visibility: hidden;
 }
 
+.pop-up-text {
+  bottom: 0;
+  color: white;
+  font-family: monospace;
+  font-size: 1.5vw;
+  margin-top: 1vh;
+  text-align: center;;
+}
+
 #menu-bar{
   display: flex;
   flex-direction: column;
-  max-width: 15vw;
+  width: 15vw;
   position: fixed;
   right: 1vw;
 }

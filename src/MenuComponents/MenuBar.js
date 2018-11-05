@@ -1,25 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {TOGGLE_SAVE, TOGGLE_LOAD} from '../actions/index';
 
-
-
-const MenuBar = (props) => {
-
-  const handleSaveClick = () => {
-    props.toggleSave();
+class MenuBar extends Component {
+  state = {
+    visible: false
   }
 
-  const handleLoadClick = () => {
-    props.toggleLoad();
+  handleSaveClick = () => {
+    this.props.toggleSave();
+
+      this.setState((prevState) => {
+        return {visible: !prevState.visible}
+      }, () => {
+        setTimeout(() => this.setState((prevState) => {
+          return {visible: !prevState.visible}
+        }), 2000)
+    })
   }
 
-  return (
-    <div id="menu-bar">
-      <button onClick={handleSaveClick}> Save </button>
-      <button onClick={handleLoadClick}> Load </button>
-    </div>
-  )
+  handleLoadClick = () => {
+    this.props.toggleLoad();
+  }
+
+  render(){
+    return (
+      <div id="menu-bar">
+        <button onClick={this.handleSaveClick}> Save </button>
+        <button onClick={this.handleLoadClick}> Load </button>
+        <div className={this.state.visible ? 'pop-up-text' : 'hidden'}>Game Saved</div>
+      </div>
+    )
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
