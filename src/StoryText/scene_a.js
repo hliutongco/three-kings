@@ -23,5 +23,5 @@ export const scene_A = [
   { displayName: null, special: null, background: "bedroom", music: calm, soundEffect: fan, text: "Though we draw nearer, the shadows are too thick for the light to illuminate the room's interior."},
   { displayName: null, special: null, background: "bedroom", music: calm, soundEffect: fan, text: "We pause at the threshold."},
   { displayName: "Jinghua", special: null, background: "bedroom", music: calm, soundEffect: fan, text: "\"Are you ready? Remember, you can always call me if anything goes wrong.\""},
-  { displayName: null, special: null, background: null, music: calm, soundEffect: fan, text: "I reply with a wordless nod. She pushes me into the dark room at exactly 3:33am."},
+  { displayName: null, special: null, background: null, music: null, soundEffect: fan, text: "I reply with a wordless nod. She pushes me into the dark room at exactly 3:33am."},
 ]

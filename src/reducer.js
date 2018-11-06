@@ -1,4 +1,3 @@
-import {chapterData} from './StoryText/chapterData'
 
 const initialState = {
   background: null,

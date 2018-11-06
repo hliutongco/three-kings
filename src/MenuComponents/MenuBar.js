@@ -10,9 +10,11 @@ class MenuBar extends Component {
   handleSaveClick = () => {
     this.props.toggleSave();
 
-      this.setState((prevState) => {
+    // This makes the "Game Saved" text visible for 2 seconds
+    this.setState((prevState) => {
         return {visible: !prevState.visible}
-      }, () => {
+      },
+      () => {
         setTimeout(() => this.setState((prevState) => {
           return {visible: !prevState.visible}
         }), 2000)

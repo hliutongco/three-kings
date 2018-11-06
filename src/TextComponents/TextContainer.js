@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Text from './Text'
 import {chapterData} from '../StoryText/chapterData'
 import {connect} from 'react-redux';
-import {GET_CHAPTER, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD} from '../actions/index'
+import {UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
@@ -12,11 +12,13 @@ class TextContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps){
+    // The save is coming from the buttons on the menu
     if(nextProps.save) {
       this.props.toggleSave()
       this.props.saveGame({chapterNumber: this.state.currentChapter, line: this.state.currentLine})
     }
 
+    // The load is coming from the buttons on the menu
     if(nextProps.load) {
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
@@ -34,6 +36,7 @@ class TextContainer extends Component {
   }
 
   handleClick = () => {
+    // The below code handles the transition between scenes
     if(this.state.currentLine >= chapterData[this.state.currentChapter].length - 1){
       this.setState({currentLine: 0, currentChapter: this.state.currentChapter + 1, transition: true},
       () => {
@@ -41,6 +44,7 @@ class TextContainer extends Component {
     })
     }
     else {
+      // This simply displays the next line of text
       this.setState((prevState) => {
         return {
           currentLine: prevState.currentLine + 1
@@ -50,6 +54,8 @@ class TextContainer extends Component {
   }
 
   handleMainContainerClass = () => {
+    // This code handles special cases
+    // e.g. if there is a transition and/or a special display name
     if(this.state.transition && this.props.otherDisplayName){
       return `hidden ${this.props.otherDisplayName}`
     }

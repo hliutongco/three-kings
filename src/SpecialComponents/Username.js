@@ -16,6 +16,7 @@ class Username extends Component {
       <div id="set-username">
         <form onSubmit={(event) => {
           event.preventDefault()
+          if (!this.state.username) return;
           this.props.handleSubmit(this.state.username)
           this.props.changeSpecialComponent(null)
         }}>
