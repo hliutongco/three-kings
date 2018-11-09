@@ -7,6 +7,7 @@ import SpecialComponent from './SpecialComponent'
 import MenuBar from './MenuComponents/MenuBar'
 
 class App extends Component {
+
   render() {
     return (
       <Fragment>
