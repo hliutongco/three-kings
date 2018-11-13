@@ -3,36 +3,57 @@ body {
   padding: 0;
   font-family: sans-serif;
   background: black;
+  color: white;
+  font-family: monospace;
 }
 
 .hidden {
   visibility: hidden;
 }
 
-.pop-up-text {
-  bottom: 0;
-  color: white;
-  font-family: monospace;
+.hidden-text {
+  visibility: hidden;
   font-size: 1.5vw;
   margin-top: 1vh;
-  text-align: center;;
+}
+
+.pop-up-text {
+  bottom: 0;
+  font-size: 1.5vw;
+  margin-top: 1vh;
+  text-align: center;
+}
+
+#menu-container {
+  width: 15vw;
+  position: fixed;
+  right: 1vw; top: 2vh;
+  text-align: center;
+  font-size: 3.5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#menu-button {
+  border: none;
+  color: white;
 }
 
 #menu-bar{
+  margin-top: 1vh;
   display: flex;
   flex-direction: column;
   width: 15vw;
-  position: fixed;
-  right: 1vw;
+  position: relative;
 }
 
 button {
+  color: white;
+  font-family: monospace;
   padding: 1vh 2vw;
   border: 2px solid white;
   border-radius: 5px;
   background: none;
-  color: white;
-  font-family: monospace;
   font-size: 2vw;
   margin-top: 1vh;
 }
@@ -51,19 +72,17 @@ button:focus {
   height: 100%;
   background-size: cover;
   background-color: black;
-  color: white;
-  font-family: monospace;
   font-size: 5vw;
 }
 
 #input-username {
+  color: white;
+  font-family: monospace;
   z-index: 1;
   background: none;
   border: none;
   border-bottom: 3px solid white;
   cursor: default;
-  color: white;
-  font-family: monospace;
   font-size: 5vw;
   width: 30vw;
 }
@@ -73,8 +92,6 @@ button:focus {
 }
 
 #username-container {
-  color: white;
-  font-family: monospace;
   font-size: 2.5vw;
   text-align: center;
   line-height: 1vh;
@@ -96,8 +113,6 @@ button:focus {
 }
 
 #main-text-container {
-  color: white;
-  font-family: monospace;
   font-size: 2.5vw;
   position: fixed;
   bottom: 10vh; right: 12vw; left: 10vw;

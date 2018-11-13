@@ -4,7 +4,7 @@ import AudioContainer from './AudioContainer'
 import MusicContainer from './MusicContainer'
 import Background from './Background'
 import SpecialComponent from './SpecialComponent'
-import MenuBar from './MenuComponents/MenuBar'
+import MenuContainer from './MenuComponents/MenuContainer'
 
 class App extends Component {
 
@@ -13,7 +13,7 @@ class App extends Component {
       <Fragment>
         <Background />
         <TextContainer />
-        <MenuBar />
+        <MenuContainer />
         <MusicContainer />
         <AudioContainer />
         <SpecialComponent />

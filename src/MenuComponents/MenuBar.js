@@ -6,39 +6,36 @@ class MenuBar extends Component {
   state = {
     saveVisible: false,
     loadVisible: false,
-    divText: null
+    divText: "_"
+  }
+
+  setLoadTimeout = () => {
+    this.timer = setTimeout(() => this.setState({loadVisible: false}), 2000)
+  }
+
+  showWarning = () => {
+    this.setState({
+      loadVisible: true,
+      divText: "No Save File"
+    },
+    () => {
+      this.setLoadTimeout()
+    })
   }
 
   handleSaveClick = () => {
     this.props.toggleSave();
 
     // This makes the "Game Saved" text visible for 2 seconds
-    this.setState((prevState) => {
-        return {
-          saveVisible: !prevState.saveVisible,
-          divText: "Game Saved"
-        }
+    this.setState({
+        saveVisible: true,
+        divText: "Game Saved"
       },
       () => {
-        setTimeout(() => this.setState((prevState) => {
-          return {saveVisible: !prevState.saveVisible}
-        }), 2000)
+        this.timer = setTimeout(() => this.setState({saveVisible: false}), 2000)
     })
   }
 
-  showWarning = () => {
-    this.setState((prevState) => {
-        return {
-          loadVisible: !prevState.loadVisible,
-          divText: "No Save File"
-        }
-      },
-      () => {
-        setTimeout(() => this.setState((prevState) => {
-          return {loadVisible: !prevState.loadVisible}
-        }), 2000)
-    })
-  }
 
   handleLoadClick = () => {
     if (!this.props.saveData) {
@@ -49,21 +46,21 @@ class MenuBar extends Component {
     this.props.toggleLoad();
 
     // This makes the "Game Loaded" text visible for 2 seconds
-    this.setState((prevState) => {
-        return {
-          loadVisible: !prevState.loadVisible,
-          divText: "Game Loaded"
-        }
+    this.setState({
+        loadVisible: true,
+        divText: "Game Loaded"
       },
       () => {
-        setTimeout(() => this.setState((prevState) => {
-          return {loadVisible: !prevState.loadVisible}
-        }), 2000)
+        this.setLoadTimeout()
     })
   }
 
   handleMenuClick = () => {
     console.log("what a quitter");
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer)
   }
 
   render(){
@@ -72,7 +69,7 @@ class MenuBar extends Component {
         <button onClick={this.handleSaveClick}> Save </button>
         <button onClick={this.handleLoadClick}> Load </button>
         <button onClick={this.handleMenuClick}> Quit </button>
-        <div className={this.state.saveVisible || this.state.loadVisible ? 'pop-up-text' : 'hidden'}>{this.state.divText}</div>
+        <div className={this.state.saveVisible || this.state.loadVisible ? 'pop-up-text' : 'hidden-text'}>{this.state.divText}</div>
       </div>
     )
   }
