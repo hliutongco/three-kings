@@ -20,9 +20,10 @@ class TextContainer extends Component {
 
     // The load is coming from the buttons on the menu
     if(nextProps.load) {
+      if (!nextProps.saveData) return
       this.setState({
-        currentChapter: this.props.saveData.chapterNumber,
-        currentLine: this.props.saveData.line
+        currentChapter: nextProps.saveData.chapterNumber,
+        currentLine: nextProps.saveData.line
       }, () => {
           this.props.toggleLoad()
         })

@@ -8,7 +8,7 @@ const initialState = {
   music: null,
   save: false,
   load: false,
-  saveData: {chapterNumber: 0, line: 0}
+  saveData: null
 }
 
 export const reducer = (state = initialState, action) => {
