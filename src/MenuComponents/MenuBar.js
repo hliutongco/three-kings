@@ -4,7 +4,9 @@ import {TOGGLE_SAVE, TOGGLE_LOAD} from '../actions/index';
 
 class MenuBar extends Component {
   state = {
-    visible: false
+    saveVisible: false,
+    loadVisible: false,
+    divText: null
   }
 
   handleSaveClick = () => {
@@ -12,17 +14,56 @@ class MenuBar extends Component {
 
     // This makes the "Game Saved" text visible for 2 seconds
     this.setState((prevState) => {
-        return {visible: !prevState.visible}
+        return {
+          saveVisible: !prevState.saveVisible,
+          divText: "Game Saved"
+        }
       },
       () => {
         setTimeout(() => this.setState((prevState) => {
-          return {visible: !prevState.visible}
+          return {saveVisible: !prevState.saveVisible}
+        }), 2000)
+    })
+  }
+
+  showWarning = () => {
+    this.setState((prevState) => {
+        return {
+          loadVisible: !prevState.loadVisible,
+          divText: "No Save File"
+        }
+      },
+      () => {
+        setTimeout(() => this.setState((prevState) => {
+          return {loadVisible: !prevState.loadVisible}
         }), 2000)
     })
   }
 
   handleLoadClick = () => {
+    if (!this.props.saveData) {
+      this.showWarning()
+      return
+    }
+
     this.props.toggleLoad();
+
+    // This makes the "Game Loaded" text visible for 2 seconds
+    this.setState((prevState) => {
+        return {
+          loadVisible: !prevState.loadVisible,
+          divText: "Game Loaded"
+        }
+      },
+      () => {
+        setTimeout(() => this.setState((prevState) => {
+          return {loadVisible: !prevState.loadVisible}
+        }), 2000)
+    })
+  }
+
+  handleMenuClick = () => {
+    console.log("what a quitter");
   }
 
   render(){
@@ -30,9 +71,16 @@ class MenuBar extends Component {
       <div id="menu-bar">
         <button onClick={this.handleSaveClick}> Save </button>
         <button onClick={this.handleLoadClick}> Load </button>
-        <div className={this.state.visible ? 'pop-up-text' : 'hidden'}>Game Saved</div>
+        <button onClick={this.handleMenuClick}> Quit </button>
+        <div className={this.state.saveVisible || this.state.loadVisible ? 'pop-up-text' : 'hidden'}>{this.state.divText}</div>
       </div>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    saveData: state.saveData
   }
 }
 
@@ -43,4 +91,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(MenuBar);
+export default connect(mapStateToProps, mapDispatchToProps)(MenuBar);
