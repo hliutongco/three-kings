@@ -8,6 +8,7 @@ const initialState = {
   music: null,
   save: false,
   load: false,
+  toggleMenu: false,
   saveData: null
 }
 
@@ -37,6 +38,10 @@ export const reducer = (state = initialState, action) => {
       return { ...state,
         specialComponent: action.payload
       }
+    case "TOGGLE_MENU":
+      return { ...state,
+        toggleMenu: action.payload
+      }
     case "TOGGLE_SAVE":
       return { ...state,
         save: action.payload
@@ -49,6 +54,14 @@ export const reducer = (state = initialState, action) => {
       return { ...state,
         saveData: action.payload
       }
+    case "RESET_TO_NULL":
+    return { ...state,
+      background: null,
+      specialComponent: null,
+      otherDisplayName: null,
+      soundEffect: null,
+      music: null
+    }
     default:
       return state
   }

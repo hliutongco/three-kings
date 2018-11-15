@@ -33,6 +33,13 @@ export const CHANGE_SPECIAL_COMPONENT = (command) => {
   }
 }
 
+export const TOGGLE_MENU = (boolean) => {
+  return {
+    type: "TOGGLE_MENU",
+    payload: boolean
+  }
+}
+
 export const TOGGLE_SAVE = (boolean) => {
   return {
     type: "TOGGLE_SAVE",
@@ -58,5 +65,12 @@ export const SET_USERNAME = (username) => {
   return {
     type: "SET_USERNAME",
     payload: username
+  }
+}
+
+export const RESET_TO_NULL = () => {
+  return {
+    type: "RESET_TO_NULL",
+    payload: null
   }
 }

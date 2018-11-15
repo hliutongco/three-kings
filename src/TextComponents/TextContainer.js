@@ -2,13 +2,24 @@ import React, {Component} from 'react';
 import Text from './Text'
 import {chapterData} from '../StoryText/chapterData'
 import {connect} from 'react-redux';
-import {UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD} from '../actions/index'
+import {UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, RESET_TO_NULL} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
     currentLine: 0,
     currentChapter: 0,
     transition: false
+  }
+
+  componentDidMount(){
+    if(this.props.load && this.props.saveData){
+      this.setState({
+        currentChapter: this.props.saveData.chapterNumber,
+        currentLine: this.props.saveData.line
+      }, () => {
+          this.props.toggleLoad()
+        })
+    }
   }
 
   componentWillReceiveProps(nextProps){
@@ -71,6 +82,10 @@ class TextContainer extends Component {
     }
   }
 
+  componentWillUnmount(){
+    this.props.reset()
+  }
+
   render(){
     const currentChapter = chapterData[this.state.currentChapter]
     const index = this.state.currentLine
@@ -108,7 +123,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     saveGame: (data) => dispatch(UPDATE_SAVE_DATA(data)),
     toggleSave: () => dispatch(TOGGLE_SAVE(false)),
-    toggleLoad: () => dispatch(TOGGLE_LOAD(false))
+    toggleLoad: () => dispatch(TOGGLE_LOAD(false)),
+    reset: () => dispatch(RESET_TO_NULL())
   }
 }
 
