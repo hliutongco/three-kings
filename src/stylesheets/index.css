@@ -62,6 +62,15 @@ button:focus {
   outline: none;
 }
 
+#main-menu {
+  font-size: 3vw;
+  text-align: center;
+}
+
+.main-menu-buttons {
+  margin: 1vw;
+}
+
 #set-username {
   z-index: 1;
   position: fixed;

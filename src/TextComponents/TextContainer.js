@@ -93,6 +93,7 @@ class TextContainer extends Component {
     return (
       <div id="main-text-container" className={this.handleMainContainerClass()}>
         <div id="username-container" onClick={this.handleClick}>
+        {console.log(this.props)}
           {this.props.otherDisplayName ? this.props.otherDisplayName : this.props.name}
         </div>
         <div id="text-container" onClick={this.handleClick}>

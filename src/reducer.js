@@ -2,7 +2,7 @@
 const initialState = {
   background: null,
   specialComponent: null,
-  username: "???",
+  username: null,
   otherDisplayName: null,
   soundEffect: null,
   music: null,

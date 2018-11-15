@@ -22,8 +22,8 @@ class MainMenu extends Component {
     return (
       <div onClick={this.handleClick} id="main-menu">
         <h1>Three Kings</h1>
-        <button id="new-game">New Game</button>
-        <button id="load-game">Load Game</button>
+        <button className="main-menu-buttons">New Game</button>
+        <button className="main-menu-buttons">Load Game</button>
       </div>
     )
   }
