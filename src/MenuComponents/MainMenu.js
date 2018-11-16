@@ -25,7 +25,7 @@ class MainMenu extends Component {
         <h1>Three Kings</h1>
         <button id="new-game" className="main-menu-buttons">New Game</button>
         <button id="load-game" className="main-menu-buttons">Load Game</button>
-        <div id="candle"><img src={candle}/></div>
+        <div id="candle"><img alt="candle" src={candle}/></div>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_MENU} from '../actions/index';
+import {TOGGLE_SAVE, TOGGLE_LOAD, CHANGE_SPECIAL_COMPONENT} from '../actions/index';
 
 class MenuBar extends Component {
   state = {
@@ -56,8 +56,7 @@ class MenuBar extends Component {
   }
 
   handleMenuClick = () => {
-    this.props.toggleMenu()
-    if(this.props.load) this.props.unloadGame()
+    this.props.changeSpecialComponent("QUIT_SCREEN")
   }
 
   componentWillUnmount() {
@@ -78,17 +77,15 @@ class MenuBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    saveData: state.saveData,
-    load: state.load
+    saveData: state.saveData
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleMenu: () => dispatch(TOGGLE_MENU(false)),
     toggleSave: () => dispatch(TOGGLE_SAVE(true)),
     toggleLoad: () => dispatch(TOGGLE_LOAD(true)),
-    unloadGame: () => dispatch(TOGGLE_LOAD(false))
+    changeSpecialComponent: (command) => dispatch(CHANGE_SPECIAL_COMPONENT(command))
   }
 }
 
