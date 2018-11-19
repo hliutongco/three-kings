@@ -190,5 +190,5 @@ button:focus {
 .Jinghua > #username-container, .Jinghua #text-container {
   border: 3px solid #aae2ff;
   color: #aae2ff;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
 }

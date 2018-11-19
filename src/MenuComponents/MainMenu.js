@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
 import music from '../music/main_menu.mp3'
-import background from '../images/main_menu.jpg'
 
 class MainMenu extends Component {
   componentDidMount() {
