@@ -7,6 +7,9 @@ class MusicContainer extends Component {
       if(!nextProps.music){
         this.fadeMusic();
       }
+      else if (nextProps.music === "main-menu") {
+        this.stopMusic();
+      }
   }
 
   fadeMusic = () => {
@@ -18,12 +21,16 @@ class MusicContainer extends Component {
       }
       else {
         // After the fadeout, stop & reset the audio player
-        this.musicPlayer.pause();
-        this.musicPlayer.currentTime = 0;
+        this.stopMusic();
         this.musicPlayer.volume = 1;
         clearInterval(fadeAudio);
       }
     }, 200);
+  }
+
+  stopMusic = () => {
+    this.musicPlayer.pause();
+    this.musicPlayer.currentTime = 0;
   }
 
   render(){

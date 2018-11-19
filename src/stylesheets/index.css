@@ -69,16 +69,6 @@ button:focus {
   outline: none;
 }
 
-img {
-  width: 60vw;
-  user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
 .quit-button {
   width: 10vw;
   margin: 1vw;
@@ -109,7 +99,7 @@ img {
 }
 
 #main-menu {
-  margin-top: 10vh;
+  margin-top: 20vh;
   font-size: 3.5vw;
   text-align: center;
   user-select: none;

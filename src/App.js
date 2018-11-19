@@ -13,11 +13,8 @@ class App extends Component {
   handleRender = () => {
     return this.props.toggleMenu ?
       <Fragment>
-        <Background />
         <TextContainer />
         <MenuContainer />
-        <MusicContainer />
-        <AudioContainer />
         <SpecialComponent />
       </Fragment>
       :
@@ -27,6 +24,9 @@ class App extends Component {
   render() {
     return (
       <Fragment>
+        <Background />
+        <MusicContainer />
+        <AudioContainer />
         {this.handleRender()}
       </Fragment>
     )
