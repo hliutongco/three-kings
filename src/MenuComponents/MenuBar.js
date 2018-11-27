@@ -59,10 +59,6 @@ class MenuBar extends Component {
     this.props.changeSpecialComponent("QUIT_SCREEN")
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timer)
-  }
-
   render(){
     return (
       <div id="menu-bar">
@@ -72,6 +68,10 @@ class MenuBar extends Component {
         <div className={this.state.saveVisible || this.state.loadVisible ? 'pop-up-text' : 'hidden-text'}>{this.state.divText}</div>
       </div>
     )
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer)
   }
 }
 

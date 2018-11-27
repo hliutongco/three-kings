@@ -22,24 +22,6 @@ class TextContainer extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    // The save is coming from the buttons on the menu
-    if(nextProps.save) {
-      this.props.toggleSave()
-      this.props.saveGame({chapterNumber: this.state.currentChapter, line: this.state.currentLine})
-    }
-
-    // The load is coming from the buttons on the menu
-    if(nextProps.load) {
-      if (!nextProps.saveData) return
-      this.setState({
-        currentChapter: nextProps.saveData.chapterNumber,
-        currentLine: nextProps.saveData.line
-      }, () => {
-          this.props.toggleLoad()
-        })
-    }
-  }
 
   handleTransition = () => {
     setTimeout(() => {
@@ -82,10 +64,6 @@ class TextContainer extends Component {
     }
   }
 
-  componentWillUnmount(){
-    this.props.reset()
-  }
-
   render(){
     const currentChapter = chapterData[this.state.currentChapter]
     const index = this.state.currentLine
@@ -105,6 +83,29 @@ class TextContainer extends Component {
         </div>
       </div>
     )
+  }
+
+  componentDidUpdate(prevProps){
+    // The save is coming from the buttons on the menu
+    if(this.props.save) {
+      this.props.toggleSave()
+      this.props.saveGame({chapterNumber: this.state.currentChapter, line: this.state.currentLine})
+    }
+
+    // The load is coming from the buttons on the menu
+    if(this.props.load) {
+      if (!this.props.saveData) return
+      this.setState({
+        currentChapter: this.props.saveData.chapterNumber,
+        currentLine: this.props.saveData.line
+      }, () => {
+        this.props.toggleLoad()
+      })
+    }
+  }
+
+  componentWillUnmount(){
+    this.props.reset()
   }
 }
 

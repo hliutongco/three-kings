@@ -7,22 +7,22 @@ class Text extends Component {
     this.props.changeDisplayName(this.props.displayName)
   }
 
-  // This checks the props to see if new things need to be rendered
-  // e.g. a new background image, a sound effect, etc.
-  componentWillReceiveProps(nextProps) {
-    if (this.props.displayName !== nextProps.displayName) this.props.changeDisplayName(nextProps.displayName)
-    if (nextProps.special) this.props.changeSpecialComponent(nextProps.special)
-    if (this.props.background !== nextProps.background) this.props.changeBackground(nextProps.background)
-    if (this.props.music !== nextProps.music) this.props.changeMusic(nextProps.music)
-    if (this.props.soundEffect !== nextProps.soundEffect) this.props.changeSoundEffect(nextProps.soundEffect)
-  }
-
-    render(){
-      return (
+  render(){
+    return (
       <Fragment>
         {this.props.currentLine}
-       </Fragment>
+      </Fragment>
     )
+  }
+
+  // This checks the props to see if new things need to be rendered
+  // e.g. a new background image, a sound effect, etc.
+  componentDidUpdate(prevProps) {
+    if (this.props.displayName !== prevProps.displayName) this.props.changeDisplayName(this.props.displayName)
+    if (this.props.special) this.props.changeSpecialComponent(this.props.special)
+    if (this.props.background !== prevProps.background) this.props.changeBackground(this.props.background)
+    if (this.props.music !== prevProps.music) this.props.changeMusic(this.props.music)
+    if (this.props.soundEffect !== prevProps.soundEffect) this.props.changeSoundEffect(this.props.soundEffect)
   }
 }
 

@@ -3,15 +3,6 @@ import {connect} from 'react-redux';
 
 class MusicContainer extends Component {
 
-  componentWillReceiveProps(nextProps){
-      if(!nextProps.music){
-        this.fadeMusic();
-      }
-      else if (nextProps.music === "main-menu") {
-        this.stopMusic();
-      }
-  }
-
   fadeMusic = () => {
     // Only fade if volume is not near zero already
     // When volume is near zero stop all the intervaling
@@ -37,6 +28,15 @@ class MusicContainer extends Component {
     return (
       <audio id="music-player" src={this.props.music} ref={(musicPlayer) => this.musicPlayer = musicPlayer} autoPlay loop />
     )
+  }
+
+  componentDidUpdate(prevProps){
+    if(!this.props.music){
+      this.fadeMusic();
+    }
+    else if (this.props.music === "main-menu") {
+      this.stopMusic();
+    }
   }
 }
 
