@@ -1,6 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import Username from './SpecialComponents/Username';
-import Quit from './SpecialComponents/Quit';
+import QuitLoadSave from './SpecialComponents/QuitLoadSave';
 import {connect} from 'react-redux';
 
 // This component conditionally renders all files in the SpecialComponents folder
@@ -10,7 +10,11 @@ class SpecialComponent extends Component {
       case "SET_USERNAME":
         return <Username />
       case "QUIT_SCREEN":
-        return <Quit />
+        return <QuitLoadSave quitLoadOrSave="quit" />
+      case "LOAD_SCREEN":
+        return <QuitLoadSave quitLoadOrSave="load" />
+      case "SAVE_SCREEN":
+        return <QuitLoadSave quitLoadOrSave="save" />
       default:
         return null;
     }

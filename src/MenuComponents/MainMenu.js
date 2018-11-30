@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
 import music from '../music/main_menu.mp3'
+import silence from '../music/silence.mp3'
 
 class MainMenu extends Component {
   componentDidMount() {
@@ -35,7 +36,7 @@ class MainMenu extends Component {
         <h1>Three Kings</h1>
         <button id="new-game" className="main-menu-buttons">New Game</button>
         <button id="load-game" className="main-menu-buttons">Load Game</button>
-        <div id="fire"></div>
+        <iframe src={silence} title="hidden-audio" allow="autoplay"></iframe>
       </div>
     )
   }

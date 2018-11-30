@@ -8,6 +8,10 @@ body {
   overflow: hidden;
 }
 
+iframe {
+  display: none;
+}
+
 .hidden {
   visibility: hidden;
 }
