@@ -90,6 +90,8 @@ class TextContainer extends Component {
     if(this.props.save) {
       this.props.toggleSave()
       this.props.saveGame({chapterNumber: this.state.currentChapter, line: this.state.currentLine})
+      localStorage.setItem("chapterNumber", `${this.state.currentChapter}`);
+      localStorage.setItem("line", `${this.state.currentLine}`);
     }
 
     // The load is coming from the buttons on the menu
