@@ -1,11 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
+import {UPDATE_SAVE_DATA, TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
 
 class MainMenu extends Component {
   componentDidMount() {
     this.props.changeMusic("https://s3.us-east-2.amazonaws.com/three-kings/main_menu.mp3")
     this.props.changeBackground("main-menu")
+
+    const currentChapter = localStorage.getItem("chapterNumber")
+    const currentLine = localStorage.getItem("line")
+
+    if(currentChapter && currentLine){
+      this.props.saveGame({
+        chapterNumber: parseInt(currentChapter, 10),
+        line: parseInt(currentLine, 10)
+      })
+    }
   }
 
   handleClick = (event) => {
@@ -47,6 +57,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    saveGame: (data) => dispatch(UPDATE_SAVE_DATA(data)),
     toggleMenu: () => dispatch(TOGGLE_MENU(true)),
     loadGame: () => dispatch(TOGGLE_LOAD(true)),
     changeBackground: (background) => dispatch(CHANGE_BACKGROUND(background)),
