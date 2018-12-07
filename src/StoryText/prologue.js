@@ -1,5 +1,5 @@
-import ringtone from '../soundEffects/telephone-ring.mp3'
-import alarm from '../soundEffects/alarm.mp3'
+const ringtone = 'https://s3.us-east-2.amazonaws.com/three-kings/telephone-ring.mp3'
+const alarm = 'https://s3.us-east-2.amazonaws.com/three-kings/alarm.mp3'
 
 export const prologueData = [
 

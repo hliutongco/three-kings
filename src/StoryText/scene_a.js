@@ -1,5 +1,5 @@
-import calm from '../music/calm.mp3';
-import fan from '../soundEffects/electric-fan.mp3';
+const calm = "https://s3.us-east-2.amazonaws.com/three-kings/calm.mp3"
+const fan = 'https://s3.us-east-2.amazonaws.com/three-kings/electric-fan.mp3'
 
 export const scene_A = [
   { displayName: "Jinghua", special: null, background: null, music: null, soundEffect: null, text: "\"Hey! Are you awake?\"" },

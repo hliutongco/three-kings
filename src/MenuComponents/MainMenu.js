@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
-import music from '../music/main_menu.mp3'
-import silence from '../music/silence.mp3'
 
 class MainMenu extends Component {
   componentDidMount() {
-    this.props.changeMusic(music)
+    this.props.changeMusic("https://s3.us-east-2.amazonaws.com/three-kings/main_menu.mp3")
     this.props.changeBackground("main-menu")
   }
 
@@ -26,7 +24,7 @@ class MainMenu extends Component {
   }
 
   componentWillUnmount() {
-    this.props.changeMusic("main-menu")
+    this.props.changeMusic(null)
     this.props.changeBackground(null)
   }
 
@@ -36,7 +34,6 @@ class MainMenu extends Component {
         <h1>Three Kings</h1>
         <button id="new-game" className="main-menu-buttons">New Game</button>
         <button id="load-game" className="main-menu-buttons">Load Game</button>
-        <iframe src={silence} title="hidden-audio" allow="autoplay"></iframe>
       </div>
     )
   }
