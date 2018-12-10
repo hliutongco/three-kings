@@ -45,9 +45,14 @@ iframe {
   z-index: -1;
 }
 
-#menu-button {
+#menu-arrow-button {
   border: none;
   color: white;
+  cursor: pointer;
+}
+
+#start-click {
+  cursor: pointer;
 }
 
 #menu-bar{
@@ -67,6 +72,12 @@ button {
   background: none;
   font-size: 2vw;
   margin-top: 1vh;
+}
+
+button:hover {
+  background: #fff;
+  color: #000;
+  cursor: pointer;
 }
 
 button:focus {
@@ -115,6 +126,17 @@ button:focus {
 
 .main-menu-buttons {
   margin: 1vw;
+}
+
+
+.blinking {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
 
 #set-username {

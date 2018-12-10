@@ -1,10 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
 
 class MainMenu extends Component {
+  state = {
+    clicked: false
+  }
+
   componentDidMount() {
-    this.props.changeMusic("https://s3.us-east-2.amazonaws.com/three-kings/main_menu.mp3")
     this.props.changeBackground("main-menu")
 
     const currentChapter = localStorage.getItem("chapterNumber")
@@ -19,6 +22,11 @@ class MainMenu extends Component {
 
       this.props.handleSubmit(username)
     }
+  }
+
+  handleStartClick = () => {
+    this.setState({clicked: true})
+    this.props.changeMusic("https://s3.us-east-2.amazonaws.com/three-kings/main_menu.mp3")
   }
 
   handleClick = (event) => {
@@ -45,8 +53,15 @@ class MainMenu extends Component {
     return (
       <div onClick={this.handleClick} id="main-menu">
         <h1>Three Kings</h1>
-        <button id="new-game" className="main-menu-buttons">New Game</button>
-        <button id="load-game" className="main-menu-buttons">Load Game</button>
+        {
+        this.state.clicked ?
+          <Fragment>
+            <button id="new-game" className="main-menu-buttons">New Game</button>
+            <button id="load-game" className="main-menu-buttons">Load Game</button>
+          </Fragment>
+        :
+          <div onClick={this.handleStartClick} className="blinking"><span id="start-click">click here to start</span></div>
+        }
       </div>
     )
   }

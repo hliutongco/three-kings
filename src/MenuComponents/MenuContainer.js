@@ -17,7 +17,7 @@ class MenuContainer extends Component {
       <div id="menu-container">
         Menu
         {this.state.collapsed ? "" : <MenuBar />}
-        <button id="menu-button" onClick={this.handleClick}>{this.state.collapsed ?  "⬇" : "⬆"}</button>
+        <div id="menu-arrow-button" onClick={this.handleClick}>{this.state.collapsed ?  "⬇" : "⬆"}</div>
       </div>
     )
   }

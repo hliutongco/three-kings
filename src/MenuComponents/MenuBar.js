@@ -9,10 +9,6 @@ class MenuBar extends Component {
     divText: "_"
   }
 
-  setLoadTimeout = () => {
-    this.timer = setTimeout(() => this.setState({loadVisible: false}), 2000)
-  }
-
   showWarning = () => {
     this.setState({
       loadVisible: true,
@@ -53,6 +49,7 @@ class MenuBar extends Component {
   }
 
   componentDidUpdate(prevProps){
+    console.log("in componentDidUpdate");
     if(this.props.save){
       // This makes the "Game Saved" text visible for 2 seconds
       this.setState({
@@ -60,6 +57,7 @@ class MenuBar extends Component {
           divText: "Game Saved"
         },
         () => {
+          console.log("in save");
           this.timer = setTimeout(() => this.setState({saveVisible: false}), 2000)
       })
     }
@@ -71,7 +69,8 @@ class MenuBar extends Component {
           divText: "Game Loaded"
         },
         () => {
-          this.setLoadTimeout()
+          console.log("in load");
+          this.timer = setTimeout(() => this.setState({loadVisible: false}), 2000)
       })
     }
   }
