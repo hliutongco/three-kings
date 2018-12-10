@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 
 class MusicContainer extends Component {
@@ -26,7 +26,9 @@ class MusicContainer extends Component {
 
   render(){
     return (
-      <audio id="music-player" src={this.props.music} ref={(musicPlayer) => this.musicPlayer = musicPlayer} autoPlay loop />
+      <Fragment>
+        <audio id="music-player" src={this.props.music} ref={(musicPlayer) => this.musicPlayer = musicPlayer} autoPlay loop />
+      </Fragment>
     )
   }
 

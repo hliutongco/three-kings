@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {UPDATE_SAVE_DATA, TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
+import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
 
 class MainMenu extends Component {
   componentDidMount() {
@@ -9,12 +9,15 @@ class MainMenu extends Component {
 
     const currentChapter = localStorage.getItem("chapterNumber")
     const currentLine = localStorage.getItem("line")
+    const username = localStorage.getItem("username")
 
     if(currentChapter && currentLine){
       this.props.saveGame({
         chapterNumber: parseInt(currentChapter, 10),
         line: parseInt(currentLine, 10)
       })
+
+      this.props.handleSubmit(username)
     }
   }
 
@@ -57,6 +60,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    handleSubmit: (username) => dispatch(SET_USERNAME(username)),
     saveGame: (data) => dispatch(UPDATE_SAVE_DATA(data)),
     toggleMenu: () => dispatch(TOGGLE_MENU(true)),
     loadGame: () => dispatch(TOGGLE_LOAD(true)),
