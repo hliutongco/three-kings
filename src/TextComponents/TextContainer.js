@@ -35,7 +35,7 @@ class TextContainer extends Component {
       this.setState({currentLine: 0, currentChapter: this.state.currentChapter + 1, transition: true},
       () => {
       this.handleTransition()
-    })
+      })
     }
     else {
       // This simply displays the next line of text
@@ -86,7 +86,6 @@ class TextContainer extends Component {
   }
 
   componentDidUpdate(prevProps){
-    console.log("in text container componentDidUpdate", "save:", this.props.save, "load:", this.props.load);
     // The save is coming from the buttons on the menu
     if(this.props.save) {
       this.props.toggleSave()
@@ -98,12 +97,11 @@ class TextContainer extends Component {
 
     // The load is coming from the buttons on the menu
     if(this.props.load) {
+      this.props.toggleLoad()
       if (!this.props.saveData) return
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
         currentLine: this.props.saveData.line
-      }, () => {
-        this.props.toggleLoad()
       })
     }
   }

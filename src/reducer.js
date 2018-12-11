@@ -43,12 +43,10 @@ export const reducer = (state = initialState, action) => {
         toggleMenu: action.payload
       }
     case "TOGGLE_SAVE":
-      console.log("in save reducer");
       return { ...state,
         save: action.payload
       }
     case "TOGGLE_LOAD":
-      console.log("in load reducer");
       return { ...state,
         load: action.payload
       }
