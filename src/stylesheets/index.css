@@ -1,3 +1,5 @@
+/* Section: HTML Elements */
+
 body {
   margin: 0;
   padding: 0;
@@ -6,61 +8,6 @@ body {
   color: white;
   font-family: monospace;
   overflow: hidden;
-}
-
-iframe {
-  display: none;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-.hidden-text {
-  visibility: hidden;
-  font-size: 1.5vw;
-  margin-top: 1vh;
-}
-
-.pop-up-text {
-  bottom: 0;
-  font-size: 1.5vw;
-  margin-top: 1vh;
-  text-align: center;
-}
-
-#menu-container {
-  width: 15vw;
-  position: fixed;
-  right: 1vw; top: 2vh;
-  text-align: center;
-  font-size: 3.5vw;
-  display: flex;
-  flex-direction: column;
-  user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-  z-index: -1;
-}
-
-#menu-arrow-button {
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-#start-click {
-  cursor: pointer;
-}
-
-#menu-bar{
-  margin-top: 1vh;
-  display: flex;
-  flex-direction: column;
-  width: 15vw;
-  position: relative;
 }
 
 button {
@@ -84,34 +31,72 @@ button:focus {
   outline: none;
 }
 
-.quit-button {
-  width: 10vw;
-  margin: 1vw;
+iframe {
+  display: none;
 }
 
-#quit-screen {
+/* Section: General Styling */
+
+.hidden {
+  visibility: hidden;
+}
+
+.hidden-text {
+  visibility: hidden;
+  font-size: 1.5vw;
+  margin-top: 1vh;
+}
+
+.pop-up-text {
+  bottom: 0;
+  font-size: 1.5vw;
+  margin-top: 1vh;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.85);
-  padding-top: 30vh;
+}
+
+#background-container {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
+  background-size: cover;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+/* Section: Side Bar */
+
+#menu-container {
+  width: 15vw;
+  position: fixed;
+  right: 1vw; top: 2vh;
+  text-align: center;
+  font-size: 3.5vw;
+  display: flex;
+  flex-direction: column;
   user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-  z-index: 1;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  z-index: -1;
 }
 
-#quit-text {
-  font-size: 4vw;
+#menu-arrow-button {
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
-#quit-text-p {
-  font-size: 2vw;
+#menu-bar{
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+  position: relative;
 }
+
+/* Section: Main Menu */
 
 #main-menu {
   margin-top: 20vh;
@@ -140,6 +125,43 @@ button:focus {
   }
 }
 
+#start-click {
+  cursor: pointer;
+}
+
+/* Section: Special Components */
+
+/* 1. Quit/Load/Save Screen */
+.quit-button {
+  width: 10vw;
+  margin: 1vw;
+}
+
+#quit-screen {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding-top: 30vh;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  z-index: 1;
+}
+
+#quit-text {
+  font-size: 4vw;
+}
+
+#quit-text-p {
+  font-size: 2vw;
+}
+
+/* 2. Set Username */
 #set-username {
   z-index: 1;
   position: fixed;
@@ -168,6 +190,8 @@ button:focus {
 #input-username:focus {
   outline: none;
 }
+
+/* Section: Text container styles */
 
 #username-container {
   font-size: 2.5vw;
@@ -202,20 +226,10 @@ button:focus {
   -o-user-select: none;
 }
 
-#background-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  opacity: 0.7;
-  z-index: -1;
-}
-
-/* Text Container Styles for each character */
+/* Section: Text Container Styles for each character */
 
 .Jinghua > #username-container, .Jinghua #text-container {
-  border: 3px solid #aae2ff;
-  color: #aae2ff;
-  background: rgba(255, 255, 255, 0.15);
+  border: 3px solid #f9d1f9;
+  color: #f9d1f9;
+  background: rgba(255, 255, 255, 0.10);
 }

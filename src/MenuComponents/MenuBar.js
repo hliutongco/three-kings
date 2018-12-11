@@ -53,7 +53,6 @@ class MenuBar extends Component {
   }
 
   componentDidUpdate(prevProps){
-
     if(this.props.save){
       // This makes the "Game Saved" text visible for 2 seconds
       this.setState({

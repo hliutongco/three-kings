@@ -2,6 +2,21 @@ import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 
 class MusicContainer extends Component {
+  state = {
+    music: null
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    if(props.music === "fade music"){
+      return { music: state.music }
+    }
+    else if (!props.music){
+      return { music: null }
+    }
+    else {
+      return { music: props.music }
+    }
+  }
 
   fadeMusic = () => {
     // Only fade if volume is not near zero already
@@ -27,17 +42,17 @@ class MusicContainer extends Component {
   render(){
     return (
       <Fragment>
-        <audio id="music-player" src={this.props.music} ref={(musicPlayer) => this.musicPlayer = musicPlayer} autoPlay loop />
+        <audio id="music-player" src={this.state.music} ref={(musicPlayer) => this.musicPlayer = musicPlayer} autoPlay loop />
       </Fragment>
     )
   }
 
   componentDidUpdate(prevProps){
     if(!this.props.music){
-      this.fadeMusic();
-    }
-    else if (this.props.music === "main-menu") {
       this.stopMusic();
+    }
+    else if (this.props.music === "fade music") {
+      this.fadeMusic();
     }
   }
 }

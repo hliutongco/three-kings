@@ -1,0 +1,10 @@
+export const forest_clearing = "forest-clearing"
+export const anonymous = "???"
+export const ringtone = 'https://s3.us-east-2.amazonaws.com/three-kings/telephone-ring.mp3'
+export const alarm = 'https://s3.us-east-2.amazonaws.com/three-kings/alarm.mp3'
+export const set_username = "SET_USERNAME"
+export const calm = "https://s3.us-east-2.amazonaws.com/three-kings/calm.mp3"
+export const fan = 'https://s3.us-east-2.amazonaws.com/three-kings/electric-fan.mp3'
+export const fade_music = "fade music"
+export const jinghua = "Jinghua"
+export const bedroom = "bedroom"
