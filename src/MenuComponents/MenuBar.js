@@ -61,7 +61,7 @@ class MenuBar extends Component {
           divText: "Game Saved"
         },
         () => {
-          this.setLoadTimeout();
+          this.timer = setTimeout(() => this.setState({saveVisible: false}), 2000)
       })
     }
 
@@ -72,7 +72,7 @@ class MenuBar extends Component {
           divText: "Game Loaded"
         },
         () => {
-          this.timer = setTimeout(() => this.setState({loadVisible: false}), 2000)
+          this.setLoadTimeout()
       })
     }
   }
