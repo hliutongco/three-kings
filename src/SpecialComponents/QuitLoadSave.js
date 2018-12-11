@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 class QuitLoadSave extends Component {
 
+  // this component is being reused for quit, load, and save
   handleYes = () => {
     switch(this.props.quitLoadOrSave){
       case "quit":
@@ -23,6 +24,7 @@ class QuitLoadSave extends Component {
     }
   }
 
+  // if the user selects no, the component unmounts
   handleNo = () => {
     this.props.changeSpecialComponent(null)
   }
