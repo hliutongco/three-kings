@@ -49,7 +49,9 @@ class MenuBar extends Component {
   }
 
   componentDidUpdate(prevProps){
-    console.log("in componentDidUpdate");
+    console.log("in componentDidUpdate", "save:", this.props.save, "load:", this.props.load);
+    console.log("in componentDidUpdate", "state:", this.state, "props", this.props);
+
     if(this.props.save){
       // This makes the "Game Saved" text visible for 2 seconds
       this.setState({
@@ -57,7 +59,7 @@ class MenuBar extends Component {
           divText: "Game Saved"
         },
         () => {
-          console.log("in save");
+          console.log("in save before setTimeout", prevProps);
           this.timer = setTimeout(() => this.setState({saveVisible: false}), 2000)
       })
     }
@@ -69,7 +71,7 @@ class MenuBar extends Component {
           divText: "Game Loaded"
         },
         () => {
-          console.log("in load");
+          console.log("in load before setTimeout", prevProps);
           this.timer = setTimeout(() => this.setState({loadVisible: false}), 2000)
       })
     }
@@ -80,13 +82,7 @@ class MenuBar extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    save: state.save,
-    load: state.load,
-    saveData: state.saveData
-  }
-}
+const mapStateToProps = ({ save, load, saveData }) => ({ save, load, saveData })
 
 const mapDispatchToProps = (dispatch) => {
   return {

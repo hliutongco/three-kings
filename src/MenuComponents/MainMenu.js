@@ -67,11 +67,7 @@ class MainMenu extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    saveData: state.saveData
-  }
-}
+const mapStateToProps = ({ saveData }) => ({ saveData })
 
 const mapDispatchToProps = (dispatch) => {
   return {

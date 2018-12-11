@@ -33,11 +33,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    load: state.load,
-    toggleMenu: state.toggleMenu
-  }
-}
+const mapStateToProps = ({ load, toggleMenu }) => ({ load, toggleMenu })
 
 export default connect(mapStateToProps)(App);

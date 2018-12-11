@@ -86,6 +86,7 @@ class TextContainer extends Component {
   }
 
   componentDidUpdate(prevProps){
+    console.log("in text container componentDidUpdate", "save:", this.props.save, "load:", this.props.load);
     // The save is coming from the buttons on the menu
     if(this.props.save) {
       this.props.toggleSave()

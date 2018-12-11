@@ -1,12 +1,12 @@
 
 .forest-clearing {
-  background-image: url(../images/forest-clearing.jpg);
+  background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/forest-clearing.jpg");
 }
 
 .bedroom {
-  background-image: url(../images/bedroom.jpg);
+  background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/bedroom.jpg");
 }
 
 .main-menu {
-  background-image: url(../images/main_menu.jpg);
+  background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/main_menu.jpg");
 }

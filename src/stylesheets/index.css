@@ -130,6 +130,7 @@ button:focus {
 
 
 .blinking {
+  margin-top: 15vh;
   animation: blinker 1s linear infinite;
 }
 

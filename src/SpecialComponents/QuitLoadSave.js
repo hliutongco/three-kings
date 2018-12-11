@@ -39,11 +39,7 @@ class QuitLoadSave extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    load: state.load
-  }
-}
+const mapStateToProps = ({ load }) => ({ load })
 
 const mapDispatchToProps = (dispatch) => {
   return {
