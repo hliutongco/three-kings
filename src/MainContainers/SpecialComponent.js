@@ -1,6 +1,6 @@
 import React, {Fragment, Component} from 'react';
-import Username from './SpecialComponents/Username';
-import QuitLoadSave from './SpecialComponents/QuitLoadSave';
+import Username from '../SpecialComponents/Username';
+import QuitLoadSave from '../SpecialComponents/QuitLoadSave';
 import {connect} from 'react-redux';
 
 // This component conditionally renders all files in the SpecialComponents folder
@@ -29,10 +29,6 @@ class SpecialComponent extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    specialComponent: state.specialComponent
-  }
-}
+const mapStateToProps = ({ specialComponent }) => ({ specialComponent })
 
 export default connect(mapStateToProps)(SpecialComponent);

@@ -61,10 +61,6 @@ class MusicContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    music: state.music
-  }
-}
+const mapStateToProps = ({ music }) => ({ music })
 
 export default connect(mapStateToProps)(MusicContainer);

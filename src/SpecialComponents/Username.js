@@ -4,7 +4,7 @@ import {SET_USERNAME, CHANGE_SPECIAL_COMPONENT} from '../actions/index'
 
 class Username extends Component {
   state = {
-    username: null
+    username: ""
   }
 
   handleChange = (event) => {
@@ -16,11 +16,12 @@ class Username extends Component {
       <div id="set-username">
         <form onSubmit={(event) => {
           event.preventDefault()
-          if (!this.state.username) return;
+          // If the username is blank, do not submit
+          if (!this.state.username.trim()) return;
           this.props.handleSubmit(this.state.username)
           this.props.changeSpecialComponent(null)
         }}>
-          <p>My name is <input id="input-username" onChange={this.handleChange} type="text" autoFocus maxLength="10" autoComplete="off"></input></p>
+          <p>My name is <input id="input-username" onChange={this.handleChange} value={this.state.username} type="text" autoFocus maxLength="10" autoComplete="off"></input></p>
         </form>
       </div>
     )

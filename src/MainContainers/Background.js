@@ -22,10 +22,6 @@ class Background extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    background: state.background
-  }
-}
+const mapStateToProps = ({ background }) => ({ background })
 
 export default connect(mapStateToProps)(Background);

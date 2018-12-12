@@ -17,10 +17,6 @@ class AudioContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    soundEffect: state.soundEffect
-  }
-}
+const mapStateToProps = ({ soundEffect }) => ({ soundEffect })
 
 export default connect(mapStateToProps)(AudioContainer);

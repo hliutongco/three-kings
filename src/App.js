@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import TextContainer from './TextComponents/TextContainer'
-import AudioContainer from './AudioContainer'
-import MusicContainer from './MusicContainer'
-import Background from './Background'
-import SpecialComponent from './SpecialComponent'
+import AudioContainer from './MainContainers/AudioContainer'
+import MusicContainer from './MainContainers/MusicContainer'
+import Background from './MainContainers/Background'
+import SpecialComponent from './MainContainers/SpecialComponent'
 import MenuContainer from './MenuComponents/MenuContainer'
 import MainMenu from './MenuComponents/MainMenu'
 import {connect} from 'react-redux';

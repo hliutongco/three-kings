@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Text from './Text'
-import {chapterData} from '../StoryText/chapterData'
+import {chapterData} from '../StoryText/tableOfContents'
 import {connect} from 'react-redux';
-import {UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, RESET_TO_NULL} from '../actions/index'
+import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, RESET_TO_NULL} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
@@ -13,12 +13,11 @@ class TextContainer extends Component {
 
   componentDidMount(){
     if(this.props.load && this.props.saveData){
+      this.props.toggleLoad()
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
         currentLine: this.props.saveData.line
-      }, () => {
-          this.props.toggleLoad()
-        })
+      })
     }
   }
 
@@ -99,6 +98,10 @@ class TextContainer extends Component {
     if(this.props.load) {
       this.props.toggleLoad()
       if (!this.props.saveData) return
+
+      // Upon load, make sure the username is loaded from the save file
+      this.props.changeUsername(localStorage.getItem("username"))
+
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
         currentLine: this.props.saveData.line
@@ -124,6 +127,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    changeUsername: (username) => dispatch(SET_USERNAME(username)),
     saveGame: (data) => dispatch(UPDATE_SAVE_DATA(data)),
     toggleSave: () => dispatch(TOGGLE_SAVE(false)),
     toggleLoad: () => dispatch(TOGGLE_LOAD(false)),
