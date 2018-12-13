@@ -6,9 +6,6 @@ class MusicContainer extends Component {
     music: null
   }
 
-  // The below code intercepts the music player URL before render
-  // "fade music" is not intended to be a url
-  // but rather a trigger to start fading the current music
   static getDerivedStateFromProps(props, state) {
     if(props.music === "fade music"){
       return { music: state.music }
@@ -51,7 +48,6 @@ class MusicContainer extends Component {
   }
 
   componentDidUpdate(prevProps){
-    // if the music prop becomes null, music should stop
     if(!this.props.music){
       this.stopMusic();
     }
