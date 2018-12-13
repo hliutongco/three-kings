@@ -30,10 +30,10 @@ class QuitLoadSave extends Component {
   render(){
     return (
       <div id="quit-screen">
-        <h3 id="quit-text">Are you sure you want to {this.props.quitLoadOrSave}?</h3>
-        <p id="quit-text-p">{this.props.quitLoadOrSave === "save" ? "" : "You will lose any unsaved progress."}</p>
-        <button className="quit-button" onClick={this.handleYes}>Yes</button>
-        <button className="quit-button" onClick={this.handleNo}>No</button>
+        <h3>Are you sure you want to {this.props.quitLoadOrSave}?</h3>
+        <p>{this.props.quitLoadOrSave === "save" ? "" : "You will lose any unsaved progress."}</p>
+        <button onClick={this.handleYes}>Yes</button>
+        <button onClick={this.handleNo}>No</button>
       </div>
     )
   }

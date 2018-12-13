@@ -21,7 +21,7 @@ class Username extends Component {
           this.props.handleSubmit(this.state.username)
           this.props.changeSpecialComponent(null)
         }}>
-          <p>My name is <input id="input-username" onChange={this.handleChange} value={this.state.username} type="text" autoFocus maxLength="10" autoComplete="off"></input></p>
+          <p>My name is <input onChange={this.handleChange} value={this.state.username} type="text" autoFocus maxLength="10" autoComplete="off"></input></p>
         </form>
       </div>
     )

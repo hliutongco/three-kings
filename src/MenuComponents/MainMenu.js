@@ -30,7 +30,7 @@ class MainMenu extends Component {
   }
 
   handleClick = (event) => {
-    switch(event.target.id){
+    switch(event.target.name){
       case "new-game":
         this.props.toggleMenu()
         break;
@@ -56,11 +56,11 @@ class MainMenu extends Component {
         {
         this.state.clicked ?
           <Fragment>
-            <button id="new-game" className="main-menu-buttons">New Game</button>
-            <button id="load-game" className="main-menu-buttons">Load Game</button>
+            <button name="new-game">New Game</button>
+            <button name="load-game">Load Game</button>
           </Fragment>
         :
-          <div onClick={this.handleStartClick} className="blinking"><span id="start-click">click here to start</span></div>
+          <div onClick={this.handleStartClick} className="blinking"><span>click here to start</span></div>
         }
       </div>
     )

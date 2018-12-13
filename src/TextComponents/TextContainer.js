@@ -50,16 +50,16 @@ class TextContainer extends Component {
     // This code handles special cases
     // e.g. if there is a transition and/or a special display name
     if(this.state.transition && this.props.otherDisplayName){
-      return `hidden ${this.props.otherDisplayName}`
+      return `main-text-container hidden ${this.props.otherDisplayName}`
     }
     else if(this.state.transition) {
-      return 'hidden'
+      return 'main-text-container hidden'
     }
     else if (this.props.otherDisplayName) {
-      return `${this.props.otherDisplayName}`
+      return `main-text-container ${this.props.otherDisplayName}`
     }
     else {
-      return ''
+      return 'main-text-container'
     }
   }
 
@@ -68,11 +68,11 @@ class TextContainer extends Component {
     const index = this.state.currentLine
 
     return (
-      <div id="main-text-container" className={this.handleMainContainerClass()}>
-        <div id="username-container" onClick={this.handleClick}>
+      <div className={this.handleMainContainerClass()}>
+        <div onClick={this.handleClick}>
           {this.props.otherDisplayName ? this.props.otherDisplayName : this.props.name}
         </div>
-        <div id="text-container" onClick={this.handleClick}>
+        <div onClick={this.handleClick}>
           <Text currentLine={currentChapter[index].text}
           displayName={currentChapter[index].displayName}
           background={currentChapter[index].background}
