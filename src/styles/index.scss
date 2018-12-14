@@ -222,6 +222,24 @@ iframe {
   }
 }
 
+/* 4. Show Answers */
+
+#answer-container {
+  background-color: $black;
+  text-align: center;
+  padding-top: 25vh;
+
+  @include pop-up;
+
+  div {
+    margin-bottom: 5vh;
+  }
+
+  button {
+    font-size: 3.5vw;
+  }
+}
+
 /* Section: Text container styles */
 
 .main-text-container {

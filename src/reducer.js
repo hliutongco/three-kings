@@ -9,7 +9,8 @@ const initialState = {
   save: false,
   load: false,
   toggleMenu: false,
-  saveData: null
+  saveData: null,
+  answerOptions: null
 }
 
 export const reducer = (state = initialState, action) => {
@@ -55,13 +56,18 @@ export const reducer = (state = initialState, action) => {
         saveData: action.payload
       }
     case "RESET_TO_NULL":
-    return { ...state,
-      background: null,
-      specialComponent: null,
-      otherDisplayName: null,
-      soundEffect: null,
-      music: null
-    }
+      return { ...state,
+        background: null,
+        specialComponent: null,
+        otherDisplayName: null,
+        soundEffect: null,
+        music: null
+      }
+    case "CHANGE_ANSWERS":
+      return {
+        ...state,
+        answerOptions: action.payload
+      }
     default:
       return state
   }

@@ -14,3 +14,7 @@
 .dark-room-scary {
   background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/dark_room_scary.jpg");
 }
+
+.dark-void {
+  background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/dark_void.jpg");
+}

@@ -27,3 +27,9 @@ export const door_close = "https://s3.us-east-2.amazonaws.com/three-kings/door_c
 // Scene C
 
 export const show_instructions = "SHOW_INSTRUCTIONS"
+export const dark_void = "dark-void"
+export const show_answers = () => [{question: 1, text: "To ask for a favor"}, {question: 1, text: "To take back what's mine"}]
+
+// Scene C-i
+
+export const show_answers_i = () => [{question: 2, text: "Because I am desperate"}, {question: 2, text: "Because I am greedy"}]

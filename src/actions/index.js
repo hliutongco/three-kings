@@ -33,6 +33,13 @@ export const CHANGE_SPECIAL_COMPONENT = (command) => {
   }
 }
 
+export const CHANGE_ANSWERS = (answers) => {
+  return {
+    type: "CHANGE_ANSWERS",
+    payload: answers
+  }
+}
+
 export const TOGGLE_MENU = (boolean) => {
   return {
     type: "TOGGLE_MENU",
