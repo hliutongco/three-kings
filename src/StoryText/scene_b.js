@@ -1,4 +1,26 @@
+import {dark_room, scary_dark_room, door_close, queen, fool, queen_laugh, fool_laugh} from './dictionary'
 
 export const scene_B = [
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "Jinghua and I set up the dark room exactly as the instructions said." },
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "We draped heavy black curtains along the boarded up windows so that no outside light could penetrate the interior." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "Two mirrors face the conspicuously empty space at the center, each a towering presence in the otherwise small, barren room." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "They are spaced just far enough apart so that, when staring at the gap between them, both mirrors are visible at the corners of my vision." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "Jinghua positions me at the center of the room. I want to thank her, but there's a heaviness in the room that prevents me from speaking." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "I can feel the heat from the candle on my lap, and the cool air blowing from the electric fan behind me." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "Both items are meant to be some kind of failsafe. If the wind from the fan extinguishes the candleflame, the ritual ends." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "I can only hope that things will not come to that." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "Jinghua gently squeezes my hand before leaving. As she exits, I notice that she deliberately avoids glancing at the mirrors." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: door_close, text: "There's a soft click as Jinghua shuts the door close. And then I am alone." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "But our guests should already be on their way." },
+  { displayName: null, special: null, background: dark_room, music: null, soundEffect: null, text: "I continue staring at the gap between the mirrors, taking care to avoid looking at my reflection directly." },
+  { displayName: null, special: null, background: scary_dark_room, music: null, soundEffect: null, text: "Soon enough, a shape emerges in the mirror to my right." },
+  { displayName: null, special: null, background: scary_dark_room, music: null, soundEffect: null, text: "A creeping chill travels down the curve of my back as the being addresses me in a smooth, yet mocking voice." },
+  { displayName: queen, special: null, background: null, music: null, soundEffect: queen_laugh, text: "\"Answer our questions correctly, and I will offer you one truth. Do you accept?\"" },
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "The mirror to my left now appears completely empty, but still I hear a low-pitched, sing-song taunt from its direction." },
+  { displayName: fool, special: null, background: null, music: null, soundEffect: fool_laugh, text: "\"Answer our questions correctly, and I will offer you one lie. Do you accept?\"" },
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "I swallow through the sudden tightness of my throat, my whole body tense with fear." },
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "Unconsciously, I grip the edges of the phone hidden in my pocket: my third and final failsafe." },
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "I'm not alone. I can do this." },
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "After a deep, shaky breath, I begin the ritual." },
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "\"I accept.\"" },
 ]

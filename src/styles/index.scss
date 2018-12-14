@@ -12,6 +12,14 @@ $transparentWhite: rgba(255, 255, 255, 0.10);
   -o-user-select: none;
 }
 
+@mixin pop-up {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
 /* Section: HTML Elements */
 
 body {
@@ -146,13 +154,9 @@ iframe {
   text-align: center;
   background-color: $transparentBlack;
   padding-top: 30vh;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
 
   @include no-select;
+  @include pop-up;
 
   button {
     width: 10vw;
@@ -170,18 +174,13 @@ iframe {
 
 /* 2. Set Username */
 #set-username {
-  z-index: 1;
-  position: fixed;
-  top: 0; left: 0;
   padding-top: 30vh;
   padding-left: 12vw;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
   background-color: $black;
   font-size: 5vw;
 
   @include no-select;
+  @include pop-up;
 
   input {
     color: $white;
@@ -200,6 +199,28 @@ iframe {
   }
 }
 
+/* 3. Show Instructions */
+
+#show-instructions {
+  background-color: $black;
+  color: $white;
+  text-align: center;
+
+  @include pop-up;
+
+  h1 {
+    font-size: 5vw;
+  }
+
+  p {
+    padding: 0 5vw;
+    font-size: 3vw;
+  }
+
+  span {
+    font-weight: bold;
+  }
+}
 
 /* Section: Text container styles */
 
@@ -208,12 +229,13 @@ iframe {
   position: fixed;
   bottom: 10vh; left: 10vw;
   z-index: 0;
-  
+
   @include no-select;
 
   div {
     border: 3px solid $white;
     border-radius: 5px;
+    text-shadow: 2px 2px $black;
 
     &:first-child {
       font-size: 2.5vw;
@@ -242,5 +264,27 @@ iframe {
     border: 3px solid $pink;
     color: $pink;
     background: $transparentWhite;
+  }
+}
+
+.Queen {
+  div{
+    border: 3px solid $white;
+    color: $white;
+    background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/hearts.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.85;
+  }
+}
+
+.Fool {
+  div{
+    border: 3px solid $white;
+    color: $white;
+    background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/black_hearts.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.85;
   }
 }

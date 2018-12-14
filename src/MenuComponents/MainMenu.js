@@ -8,7 +8,7 @@ class MainMenu extends Component {
   }
 
   componentDidMount() {
-    this.props.changeBackground("main-menu")
+    this.props.changeBackground("dark-room")
 
     const currentChapter = localStorage.getItem("chapterNumber")
     const currentLine = localStorage.getItem("line")

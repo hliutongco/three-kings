@@ -7,6 +7,10 @@
   background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/bedroom.jpg");
 }
 
-.main-menu {
+.dark-room {
   background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/main_menu.jpg");
+}
+
+.dark-room-scary {
+  background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/dark_room_scary.jpg");
 }
