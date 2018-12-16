@@ -61,9 +61,23 @@ export const TOGGLE_LOAD = (boolean) => {
   }
 }
 
+export const TOGGLE_REDIRECT = (boolean) => {
+  return {
+    type: "TOGGLE_REDIRECT",
+    payload: boolean
+  }
+}
+
 export const UPDATE_SAVE_DATA = (data) => {
   return {
     type: "UPDATE_SAVE_DATA",
+    payload: data
+  }
+}
+
+export const UPDATE_REDIRECT_DATA = (data) => {
+  return {
+    type: "UPDATE_REDIRECT_DATA",
     payload: data
   }
 }

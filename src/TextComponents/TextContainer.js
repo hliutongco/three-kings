@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Text from './Text'
 import {chapterData} from '../StoryText/tableOfContents'
 import {connect} from 'react-redux';
-import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, RESET_TO_NULL} from '../actions/index'
+import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
@@ -78,7 +78,8 @@ class TextContainer extends Component {
           background={currentChapter[index].background}
           music={currentChapter[index].music}
           soundEffect={currentChapter[index].soundEffect}
-          special={currentChapter[index].special} />
+          special={currentChapter[index].special}
+          redirectTrigger={currentChapter[index].redirectTrigger} />
         </div>
       </div>
     )
@@ -107,9 +108,23 @@ class TextContainer extends Component {
         currentLine: this.props.saveData.line
       })
     }
+
+    // The redirect is coming from the Answer component
+    if(this.props.redirect) {
+      this.props.toggleRedirect()
+      this.setState({
+        currentChapter: this.props.redirectData,
+        currentLine: 0,
+        transition: true
+      },
+      () => {
+      this.handleTransition()
+      })
+    }
   }
 
   componentWillUnmount(){
+    // resets all the sounds, background, etc. to null
     this.props.reset()
   }
 }
@@ -121,7 +136,9 @@ const mapStateToProps = (state) => {
     chapterNumber: state.chapterNumber,
     save: state.save,
     load: state.load,
-    saveData: state.saveData
+    saveData: state.saveData,
+    redirect: state.redirect,
+    redirectData: state.redirectData
   }
 }
 
@@ -131,6 +148,7 @@ const mapDispatchToProps = (dispatch) => {
     saveGame: (data) => dispatch(UPDATE_SAVE_DATA(data)),
     toggleSave: () => dispatch(TOGGLE_SAVE(false)),
     toggleLoad: () => dispatch(TOGGLE_LOAD(false)),
+    toggleRedirect: () => dispatch(TOGGLE_REDIRECT(false)),
     reset: () => dispatch(RESET_TO_NULL())
   }
 }

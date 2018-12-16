@@ -229,6 +229,7 @@ iframe {
   text-align: center;
   padding-top: 25vh;
 
+  @include no-select;
   @include pop-up;
 
   div {
@@ -236,6 +237,8 @@ iframe {
   }
 
   button {
+    min-height: 8vh;
+    min-width: 15vw;
     font-size: 3.5vw;
   }
 }

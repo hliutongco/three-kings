@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import {CHANGE_DISPLAY_NAME, CHANGE_BACKGROUND, CHANGE_SPECIAL_COMPONENT, CHANGE_SOUND_EFFECT, CHANGE_MUSIC} from '../actions/index'
+import {CHANGE_DISPLAY_NAME, CHANGE_BACKGROUND, CHANGE_SPECIAL_COMPONENT, CHANGE_SOUND_EFFECT, CHANGE_MUSIC, TOGGLE_REDIRECT} from '../actions/index'
 
 class Text extends Component {
   componentDidMount() {
@@ -23,6 +23,7 @@ class Text extends Component {
     if (this.props.background !== prevProps.background) this.props.changeBackground(this.props.background)
     if (this.props.music !== prevProps.music) this.props.changeMusic(this.props.music)
     if (this.props.soundEffect !== prevProps.soundEffect) this.props.changeSoundEffect(this.props.soundEffect)
+    if (this.props.redirectTrigger) this.props.toggleRedirect()
   }
 }
 
@@ -32,7 +33,8 @@ const mapDispatchToProps = (dispatch) => {
     changeBackground: (background) => dispatch(CHANGE_BACKGROUND(background)),
     changeSpecialComponent: (command) => dispatch(CHANGE_SPECIAL_COMPONENT(command)),
     changeMusic: (music) => dispatch(CHANGE_MUSIC(music)),
-    changeSoundEffect: (sound) => dispatch(CHANGE_SOUND_EFFECT(sound))
+    changeSoundEffect: (sound) => dispatch(CHANGE_SOUND_EFFECT(sound)),
+    toggleRedirect: () => dispatch(TOGGLE_REDIRECT(true))
   }
 }
 
