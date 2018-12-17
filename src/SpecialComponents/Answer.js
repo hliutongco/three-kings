@@ -7,6 +7,7 @@ class Answer extends Component {
     if(this.props.answerData.correct){
       this.props.updateScore()
     }
+    console.log(this.props.score);
 
     // redirects to the bad end if the player has a score of 0
     // or if they have a score of 1 and did not get the last question correct
