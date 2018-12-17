@@ -12,7 +12,8 @@ const initialState = {
   saveData: null,
   answerOptions: null,
   redirect: false,
-  redirectData: null
+  redirectData: null,
+  score: 0
 }
 
 export const reducer = (state = initialState, action) => {
@@ -56,6 +57,14 @@ export const reducer = (state = initialState, action) => {
     case "UPDATE_SAVE_DATA":
       return { ...state,
         saveData: action.payload
+      }
+    case "UPDATE_SCORE":
+      return { ...state,
+        score: state.score + action.payload
+      }
+    case "RESET_SCORE":
+      return { ...state,
+        score: action.payload
       }
     case "RESET_TO_NULL":
       return { ...state,

@@ -82,6 +82,20 @@ export const UPDATE_REDIRECT_DATA = (data) => {
   }
 }
 
+export const UPDATE_SCORE = () => {
+  return {
+    type: "UPDATE_SCORE",
+    payload: 1
+  }
+}
+
+export const RESET_SCORE = (score) => {
+  return {
+    type: "RESET_SCORE",
+    payload: score
+  }
+}
+
 export const SET_USERNAME = (username) => {
   return {
     type: "SET_USERNAME",

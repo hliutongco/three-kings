@@ -122,6 +122,7 @@ iframe {
   margin-top: 20vh;
   font-size: 3.5vw;
   text-align: center;
+  text-shadow: 1px 1px $black; 
 
   @include no-select;
 

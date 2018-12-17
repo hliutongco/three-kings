@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Text from './Text'
-import {chapterData} from '../StoryText/tableOfContents'
+import {chapterData, disableMenu} from '../StoryText/tableOfContents'
 import {connect} from 'react-redux';
-import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL} from '../actions/index'
+import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL, RESET_SCORE} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
@@ -14,13 +14,23 @@ class TextContainer extends Component {
   componentDidMount(){
     if(this.props.load && this.props.saveData){
       this.props.toggleLoad()
+      this.props.resetScore(parseInt(localStorage.getItem("score")))
+
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
         currentLine: this.props.saveData.line
-      })
+      }, () => this.disableCallButton())
+    }
+    else {
+      this.disableCallButton()
     }
   }
 
+  disableCallButton = () => {
+    if(disableMenu.includes(this.state.currentChapter)){
+      console.log("reached if");
+    }
+  }
 
   handleTransition = () => {
     setTimeout(() => {
@@ -33,7 +43,8 @@ class TextContainer extends Component {
     if(this.state.currentLine >= chapterData[this.state.currentChapter].length - 1){
       this.setState({currentLine: 0, currentChapter: this.state.currentChapter + 1, transition: true},
       () => {
-      this.handleTransition()
+        this.disableCallButton()
+        this.handleTransition()
       })
     }
     else {
@@ -89,10 +100,11 @@ class TextContainer extends Component {
     // The save is coming from the buttons on the menu
     if(this.props.save) {
       this.props.toggleSave()
-      this.props.saveGame({chapterNumber: this.state.currentChapter, line: this.state.currentLine})
+      this.props.saveGame({chapterNumber: this.state.currentChapter, line: this.state.currentLine, score: this.props.score})
       localStorage.setItem("chapterNumber", `${this.state.currentChapter}`);
       localStorage.setItem("line", `${this.state.currentLine}`);
       localStorage.setItem("username", `${this.props.name}`);
+      localStorage.setItem("score", `${this.props.score}`);
     }
 
     // The load is coming from the buttons on the menu
@@ -101,12 +113,14 @@ class TextContainer extends Component {
       if (!this.props.saveData) return
 
       // Upon load, make sure the username is loaded from the save file
+      // Also reset score to the score stored in the save data
       this.props.changeUsername(localStorage.getItem("username"))
+      this.props.resetScore(parseInt(localStorage.getItem("score")))
 
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
         currentLine: this.props.saveData.line
-      })
+      }, () => this.disableCallButton())
     }
 
     // The redirect is coming from the Answer component
@@ -138,7 +152,8 @@ const mapStateToProps = (state) => {
     load: state.load,
     saveData: state.saveData,
     redirect: state.redirect,
-    redirectData: state.redirectData
+    redirectData: state.redirectData,
+    score: state.score
   }
 }
 
@@ -149,7 +164,8 @@ const mapDispatchToProps = (dispatch) => {
     toggleSave: () => dispatch(TOGGLE_SAVE(false)),
     toggleLoad: () => dispatch(TOGGLE_LOAD(false)),
     toggleRedirect: () => dispatch(TOGGLE_REDIRECT(false)),
-    reset: () => dispatch(RESET_TO_NULL())
+    reset: () => dispatch(RESET_TO_NULL()),
+    resetScore: (score) => dispatch(RESET_SCORE(score))
   }
 }
 
