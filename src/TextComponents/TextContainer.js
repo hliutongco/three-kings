@@ -14,7 +14,7 @@ class TextContainer extends Component {
   componentDidMount(){
     if(this.props.load && this.props.saveData){
       this.props.toggleLoad()
-      if (localStorage.getItem("score")) this.props.resetScore(parseInt(localStorage.getItem("score")))
+      this.props.resetScore(parseInt(localStorage.getItem("score")))
 
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
@@ -75,7 +75,6 @@ class TextContainer extends Component {
   }
 
   render(){
-    console.log(this.props.score);
     const currentChapter = chapterData[this.state.currentChapter]
     const index = this.state.currentLine
 

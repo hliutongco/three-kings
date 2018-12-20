@@ -8,6 +8,7 @@ import {scene_C_iii_a} from './scene_c_iii'
 import {scene_C_iii_b} from './scene_c_iii'
 import {scene_C_iv} from './scene_c_iv'
 import {scene_D} from './scene_d'
+import {scene_E} from './scene_e'
 import {bad_end} from './bad_end'
 
 // This functions as a table of contents
@@ -22,6 +23,7 @@ export const chapterData = {
   7: scene_C_iii_b,
   8: scene_C_iv,
   9: scene_D,
+  10: scene_E,
   100: bad_end
 }
 

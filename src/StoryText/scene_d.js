@@ -1,4 +1,4 @@
-import {fool, fool_laugh, underwater, underwater_music, show_answers_iv, show_answers_v} from './dictionary'
+import {fool, fool_laugh, underwater, underwater_music, show_answers_iv, show_answers_v, show_answers_vi} from './dictionary'
 
 export const scene_D = [
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "Where am I now?" },
@@ -9,5 +9,7 @@ export const scene_D = [
   { displayName: fool, special: show_answers_iv, background: underwater, music: underwater_music, soundEffect: null, text: "\"Interesting. Be honest, now. Are you willing to put your wish above all else?\"" },
   { displayName: fool, special: show_answers_v, background: underwater, music: underwater_music, soundEffect: null, text: "\"How amusing. I hope you won't regret your decision.\"" },
   { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "I'm starting to feel sick. I wonder if I made the right choice?" },
+  { displayName: null, special: show_answers_vi, background: underwater, music: underwater_music, soundEffect: null, text: "test" },
+  { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, redirectTrigger: true, text: "test 2" },
 
 ]

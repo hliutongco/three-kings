@@ -41,12 +41,17 @@ class MenuBar extends Component {
     this.props.changeSpecialComponent("QUIT_SCREEN")
   }
 
+  handleCallClick = () => {
+    console.log("ring ring");
+  }
+
   render(){
     return (
       <div id="menu-bar">
         <button onClick={this.handleSaveClick}> Save </button>
         <button onClick={this.handleLoadClick}> Load </button>
         <button onClick={this.handleMenuClick}> Quit </button>
+        <button onClick={this.handleCallClick}> Call </button>
         <div className={this.state.saveVisible || this.state.loadVisible ? 'pop-up-text' : 'hidden-text'}>{this.state.divText}</div>
       </div>
     )

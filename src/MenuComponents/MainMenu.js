@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
-import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND} from '../actions/index';
+import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_LOAD, TOGGLE_MENU, CHANGE_MUSIC, CHANGE_BACKGROUND, RESET_SCORE} from '../actions/index';
 
 class MainMenu extends Component {
   state = {
@@ -33,6 +33,7 @@ class MainMenu extends Component {
     switch(event.target.name){
       case "new-game":
         this.props.toggleMenu()
+        this.props.resetScore()
         break;
       case "load-game":
         if(!this.props.saveData) return
@@ -76,7 +77,8 @@ const mapDispatchToProps = (dispatch) => {
     toggleMenu: () => dispatch(TOGGLE_MENU(true)),
     loadGame: () => dispatch(TOGGLE_LOAD(true)),
     changeBackground: (background) => dispatch(CHANGE_BACKGROUND(background)),
-    changeMusic: (music) => dispatch(CHANGE_MUSIC(music))
+    changeMusic: (music) => dispatch(CHANGE_MUSIC(music)),
+    resetScore: () => dispatch(RESET_SCORE(0))
   }
 }
 
