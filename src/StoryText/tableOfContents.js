@@ -29,3 +29,6 @@ export const chapterData = {
 
 // chapters where call button should be disabled
 export const enableMenu = [3,4,5,6,7,8,9]
+
+// chapters that should have checkpoints
+export const checkpointData = [3, 9]

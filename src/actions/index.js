@@ -96,6 +96,13 @@ export const UPDATE_REDIRECT_DATA = (data) => {
   }
 }
 
+export const UPDATE_CHECKPOINT = (data) => {
+  return {
+    type: "UPDATE_CHECKPOINT",
+    payload: data
+  }
+}
+
 export const UPDATE_SCORE = () => {
   return {
     type: "UPDATE_SCORE",

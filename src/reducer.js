@@ -15,7 +15,8 @@ const initialState = {
   answerOptions: null,
   redirect: false,
   redirectData: null,
-  score: 0
+  score: 0,
+  checkpoint: null
 }
 
 export const reducer = (state = initialState, action) => {
@@ -100,6 +101,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         redirectData: action.payload
+      }
+    case "UPDATE_CHECKPOINT":
+      return {
+        ...state,
+        checkpoint: action.payload
       }
     default:
       return state

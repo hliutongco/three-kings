@@ -42,8 +42,7 @@ class MenuBar extends Component {
   }
 
   handleCallClick = () => {
-    console.log("ring ring");
-    this.props.toggleCall(!this.props.call)
+    this.props.toggleCall()
   }
 
   render(){
@@ -87,12 +86,12 @@ class MenuBar extends Component {
   }
 }
 
-const mapStateToProps = ({ save, load, saveData, call, displayCallButton }) => ({ save, load, saveData, call, displayCallButton })
+const mapStateToProps = ({ save, load, saveData, displayCallButton }) => ({ save, load, saveData, displayCallButton })
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeSpecialComponent: (command) => dispatch(CHANGE_SPECIAL_COMPONENT(command)),
-    toggleCall: (boolean) => dispatch(TOGGLE_CALL(boolean))
+    toggleCall: () => dispatch(TOGGLE_CALL(true))
   }
 }
 

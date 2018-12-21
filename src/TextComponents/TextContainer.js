@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Text from './Text'
-import {chapterData, enableMenu} from '../StoryText/tableOfContents'
+import {chapterData, enableMenu, checkpointData} from '../StoryText/tableOfContents'
 import {connect} from 'react-redux';
-import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL, RESET_SCORE, ENABLE_CALL} from '../actions/index'
+import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL, RESET_SCORE, ENABLE_CALL, UPDATE_CHECKPOINT, TOGGLE_CALL} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
@@ -15,6 +15,7 @@ class TextContainer extends Component {
     if(this.props.load && this.props.saveData){
       this.props.toggleLoad()
       this.props.resetScore(parseInt(localStorage.getItem("score")))
+      this.props.updateCheckpoint({currentChapter: parseInt(localStorage.getItem("currentChapter")), currentLine: parseInt(localStorage.getItem("currentLine"))})
 
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
@@ -36,6 +37,18 @@ class TextContainer extends Component {
   }
 
   handleTransition = () => {
+    // this saves checkpoint data
+    if(checkpointData.includes(this.state.currentChapter)){
+      this.props.updateCheckpoint({currentChapter: this.state.currentChapter, currentLine: this.state.currentLine})
+    }
+    else if (!enableMenu.includes(this.state.currentChapter)){
+      // if enableMenu has the current chapter, don't change to null
+      // because that means a checkpoint should still be active
+      this.props.updateCheckpoint(null)
+    }
+
+    this.enableCallButton()
+
     setTimeout(() => {
       this.setState({transition: false})
     }, 1000)
@@ -108,6 +121,8 @@ class TextContainer extends Component {
       localStorage.setItem("line", `${this.state.currentLine}`);
       localStorage.setItem("username", `${this.props.name}`);
       localStorage.setItem("score", `${this.props.score}`);
+      localStorage.setItem("currentChapter", `${this.props.checkpoint.currentChapter}`)
+      localStorage.setItem("currentLine", `${this.props.checkpoint.currentLine}`)
     }
 
     // The load is coming from the buttons on the menu
@@ -117,8 +132,10 @@ class TextContainer extends Component {
 
       // Upon load, make sure the username is loaded from the save file
       // Also reset score to the score stored in the save data
+      // And resets the checkpoint to whatever is in the save data
       this.props.changeUsername(localStorage.getItem("username"))
       this.props.resetScore(parseInt(localStorage.getItem("score")))
+      this.props.updateCheckpoint({currentChapter: parseInt(localStorage.getItem("currentChapter")), currentLine: parseInt(localStorage.getItem("currentLine"))})
 
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
@@ -136,6 +153,14 @@ class TextContainer extends Component {
       },
       () => {
       this.handleTransition()
+      })
+    }
+
+    if(this.props.call){
+      this.props.toggleCall()
+      this.setState({
+        currentChapter: this.props.checkpoint.currentChapter,
+        currentLine: this.props.checkpoint.currentLine
       })
     }
   }
@@ -156,7 +181,9 @@ const mapStateToProps = (state) => {
     saveData: state.saveData,
     redirect: state.redirect,
     redirectData: state.redirectData,
-    score: state.score
+    score: state.score,
+    call: state.call,
+    checkpoint: state.checkpoint
   }
 }
 
@@ -169,7 +196,9 @@ const mapDispatchToProps = (dispatch) => {
     toggleRedirect: () => dispatch(TOGGLE_REDIRECT(false)),
     reset: () => dispatch(RESET_TO_NULL()),
     resetScore: (score) => dispatch(RESET_SCORE(score)),
-    enableCall: (boolean) => dispatch(ENABLE_CALL(boolean))
+    enableCall: (boolean) => dispatch(ENABLE_CALL(boolean)),
+    updateCheckpoint: (checkpoint) => dispatch(UPDATE_CHECKPOINT(checkpoint)),
+    toggleCall: () => dispatch(TOGGLE_CALL(false))
   }
 }
 
