@@ -9,6 +9,8 @@ const initialState = {
   save: false,
   load: false,
   toggleMenu: false,
+  call: false,
+  displayCallButton: false,
   saveData: null,
   answerOptions: null,
   redirect: false,
@@ -83,6 +85,16 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         redirect: action.payload
+      }
+    case "TOGGLE_CALL":
+      return {
+        ...state,
+        call: action.payload
+      }
+    case "DISPLAY_CALL_BUTTON":
+      return {
+        ...state,
+        displayCallButton: action.payload
       }
     case "UPDATE_REDIRECT_DATA":
       return {

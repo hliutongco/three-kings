@@ -68,6 +68,20 @@ export const TOGGLE_REDIRECT = (boolean) => {
   }
 }
 
+export const TOGGLE_CALL = (boolean) => {
+  return {
+    type: "TOGGLE_CALL",
+    payload: boolean
+  }
+}
+
+export const ENABLE_CALL = (boolean) => {
+  return {
+    type: "DISPLAY_CALL_BUTTON",
+    payload: boolean
+  }
+}
+
 export const UPDATE_SAVE_DATA = (data) => {
   return {
     type: "UPDATE_SAVE_DATA",

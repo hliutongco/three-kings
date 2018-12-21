@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {CHANGE_SPECIAL_COMPONENT} from '../actions/index';
+import {CHANGE_SPECIAL_COMPONENT, TOGGLE_CALL} from '../actions/index';
 
 class MenuBar extends Component {
   state = {
@@ -43,15 +43,16 @@ class MenuBar extends Component {
 
   handleCallClick = () => {
     console.log("ring ring");
+    this.props.toggleCall(!this.props.call)
   }
 
   render(){
     return (
       <div id="menu-bar">
+        {this.props.displayCallButton ? <button onClick={this.handleCallClick}> Call </button> : ""}
         <button onClick={this.handleSaveClick}> Save </button>
         <button onClick={this.handleLoadClick}> Load </button>
         <button onClick={this.handleMenuClick}> Quit </button>
-        <button onClick={this.handleCallClick}> Call </button>
         <div className={this.state.saveVisible || this.state.loadVisible ? 'pop-up-text' : 'hidden-text'}>{this.state.divText}</div>
       </div>
     )
@@ -86,11 +87,12 @@ class MenuBar extends Component {
   }
 }
 
-const mapStateToProps = ({ save, load, saveData }) => ({ save, load, saveData })
+const mapStateToProps = ({ save, load, saveData, call, displayCallButton }) => ({ save, load, saveData, call, displayCallButton })
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changeSpecialComponent: (command) => dispatch(CHANGE_SPECIAL_COMPONENT(command))
+    changeSpecialComponent: (command) => dispatch(CHANGE_SPECIAL_COMPONENT(command)),
+    toggleCall: (boolean) => dispatch(TOGGLE_CALL(boolean))
   }
 }
 

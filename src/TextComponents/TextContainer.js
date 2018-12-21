@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Text from './Text'
-import {chapterData, disableMenu} from '../StoryText/tableOfContents'
+import {chapterData, enableMenu} from '../StoryText/tableOfContents'
 import {connect} from 'react-redux';
-import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL, RESET_SCORE} from '../actions/index'
+import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL, RESET_SCORE, ENABLE_CALL} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
@@ -19,16 +19,19 @@ class TextContainer extends Component {
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
         currentLine: this.props.saveData.line
-      }, () => this.disableCallButton())
+      }, () => this.enableCallButton())
     }
     else {
-      this.disableCallButton()
+      this.enableCallButton()
     }
   }
 
-  disableCallButton = () => {
-    if(disableMenu.includes(this.state.currentChapter)){
-      console.log("reached if");
+  enableCallButton = () => {
+    if(enableMenu.includes(this.state.currentChapter)){
+      this.props.enableCall(true)
+    }
+    else {
+      this.props.enableCall(false)
     }
   }
 
@@ -43,7 +46,7 @@ class TextContainer extends Component {
     if(this.state.currentLine >= chapterData[this.state.currentChapter].length - 1){
       this.setState({currentLine: 0, currentChapter: this.state.currentChapter + 1, transition: true},
       () => {
-        this.disableCallButton()
+        this.enableCallButton()
         this.handleTransition()
       })
     }
@@ -120,7 +123,7 @@ class TextContainer extends Component {
       this.setState({
         currentChapter: this.props.saveData.chapterNumber,
         currentLine: this.props.saveData.line
-      }, () => this.disableCallButton())
+      }, () => this.enableCallButton())
     }
 
     // The redirect is coming from the Answer component
@@ -165,7 +168,8 @@ const mapDispatchToProps = (dispatch) => {
     toggleLoad: () => dispatch(TOGGLE_LOAD(false)),
     toggleRedirect: () => dispatch(TOGGLE_REDIRECT(false)),
     reset: () => dispatch(RESET_TO_NULL()),
-    resetScore: (score) => dispatch(RESET_SCORE(score))
+    resetScore: (score) => dispatch(RESET_SCORE(score)),
+    enableCall: (boolean) => dispatch(ENABLE_CALL(boolean))
   }
 }
 
