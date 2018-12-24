@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Text from './Text'
 import {chapterData, enableMenu, checkpointData} from '../StoryText/tableOfContents'
 import {connect} from 'react-redux';
-import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL, RESET_SCORE, ENABLE_CALL, UPDATE_CHECKPOINT, TOGGLE_CALL} from '../actions/index'
+import {SET_USERNAME, UPDATE_SAVE_DATA, TOGGLE_SAVE, TOGGLE_LOAD, TOGGLE_REDIRECT, RESET_TO_NULL, RESET_SCORE, ENABLE_CALL, UPDATE_CHECKPOINT, TOGGLE_CALL, UPDATE_LOG_DATA} from '../actions/index'
 
 class TextContainer extends Component {
   state = {
@@ -158,10 +158,15 @@ class TextContainer extends Component {
 
     if(this.props.call){
       this.props.toggleCall()
+      this.props.resetScore(0)
       this.setState({
         currentChapter: this.props.checkpoint.currentChapter,
         currentLine: this.props.checkpoint.currentLine
       })
+    }
+
+    if(this.props.log){
+      this.props.updateLogData({currentChapter: this.state.currentChapter, currentLine: this.state.currentLine})
     }
   }
 
@@ -183,7 +188,8 @@ const mapStateToProps = (state) => {
     redirectData: state.redirectData,
     score: state.score,
     call: state.call,
-    checkpoint: state.checkpoint
+    checkpoint: state.checkpoint,
+    log: state.displayLog
   }
 }
 
@@ -198,7 +204,8 @@ const mapDispatchToProps = (dispatch) => {
     resetScore: (score) => dispatch(RESET_SCORE(score)),
     enableCall: (boolean) => dispatch(ENABLE_CALL(boolean)),
     updateCheckpoint: (checkpoint) => dispatch(UPDATE_CHECKPOINT(checkpoint)),
-    toggleCall: () => dispatch(TOGGLE_CALL(false))
+    toggleCall: () => dispatch(TOGGLE_CALL(false)),
+    updateLogData: (data) => dispatch(UPDATE_LOG_DATA(data))
   }
 }
 

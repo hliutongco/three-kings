@@ -39,7 +39,7 @@ button {
   border: 2px solid $white;
   border-radius: 5px;
   background: none;
-  font-size: 2vw;
+  font-size: 1.5vw;
   margin-top: 1vh;
 
   &:focus {
@@ -94,7 +94,7 @@ iframe {
   position: fixed;
   right: 1vw; top: 2vh;
   text-align: center;
-  font-size: 3.5vw;
+  font-size: 3vw;
   display: flex;
   flex-direction: column;
   z-index: -1;
@@ -208,15 +208,16 @@ iframe {
   color: $white;
   text-align: center;
 
+  @include no-select;
   @include pop-up;
 
   h1 {
-    font-size: 5vw;
+    font-size: 4vw;
   }
 
   p {
     padding: 0 5vw;
-    font-size: 3vw;
+    font-size: 2.5vw;
   }
 
   span {
@@ -242,6 +243,30 @@ iframe {
     min-height: 8vh;
     min-width: 15vw;
     font-size: 3.5vw;
+  }
+}
+
+/* 5. Log Screen */
+
+#log-container {
+  background-color: $black;
+  text-align: center;
+
+  @include no-select;
+  @include pop-up;
+
+  div {
+    height: 75vh;
+    width: 80vw;
+    margin: 2vh auto;
+    overflow-y: scroll;
+    border: 1px solid $white;
+    padding: 0 1vw;
+
+    p {
+      text-align: left;
+      font-size: 1.8vw;
+    }
   }
 }
 

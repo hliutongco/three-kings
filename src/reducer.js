@@ -16,7 +16,9 @@ const initialState = {
   redirect: false,
   redirectData: null,
   score: 0,
-  checkpoint: null
+  checkpoint: null,
+  logData: null,
+  displayLog: false
 }
 
 export const reducer = (state = initialState, action) => {
@@ -57,9 +59,17 @@ export const reducer = (state = initialState, action) => {
       return { ...state,
         load: action.payload
       }
+    case "TOGGLE_LOG":
+      return { ...state,
+        displayLog: action.payload
+      }
     case "UPDATE_SAVE_DATA":
       return { ...state,
         saveData: action.payload
+      }
+    case "UPDATE_LOG_DATA":
+      return { ...state,
+        logData: action.payload
       }
     case "UPDATE_SCORE":
       return { ...state,

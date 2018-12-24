@@ -75,6 +75,13 @@ export const TOGGLE_CALL = (boolean) => {
   }
 }
 
+export const TOGGLE_LOG = (boolean) => {
+  return {
+    type: "TOGGLE_LOG",
+    payload: boolean
+  }
+}
+
 export const ENABLE_CALL = (boolean) => {
   return {
     type: "DISPLAY_CALL_BUTTON",
@@ -85,6 +92,13 @@ export const ENABLE_CALL = (boolean) => {
 export const UPDATE_SAVE_DATA = (data) => {
   return {
     type: "UPDATE_SAVE_DATA",
+    payload: data
+  }
+}
+
+export const UPDATE_LOG_DATA = (data) => {
+  return {
+    type: "UPDATE_LOG_DATA",
     payload: data
   }
 }

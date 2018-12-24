@@ -3,6 +3,7 @@ import Username from '../SpecialComponents/Username';
 import QuitLoadSave from '../SpecialComponents/QuitLoadSave';
 import Instructions from '../SpecialComponents/Instructions';
 import AnswerContainer from '../SpecialComponents/AnswerContainer';
+import Log from '../SpecialComponents/Log';
 import {CHANGE_ANSWERS} from '../actions/index'
 import {connect} from 'react-redux';
 
@@ -26,6 +27,8 @@ class SpecialComponent extends Component {
         return <QuitLoadSave quitLoadOrSave="load" />
       case "SAVE_SCREEN":
         return <QuitLoadSave quitLoadOrSave="save" />
+      case "LOG_SCREEN":
+        return <Log />
       case "SET_USERNAME":
         return <Username />
       case "SHOW_INSTRUCTIONS":

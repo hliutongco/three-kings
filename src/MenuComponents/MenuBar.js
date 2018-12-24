@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {CHANGE_SPECIAL_COMPONENT, TOGGLE_CALL} from '../actions/index';
+import {CHANGE_SPECIAL_COMPONENT, TOGGLE_CALL, TOGGLE_LOG} from '../actions/index';
 
 class MenuBar extends Component {
   state = {
@@ -45,12 +45,18 @@ class MenuBar extends Component {
     this.props.toggleCall()
   }
 
+  handleLogClick = () => {
+    this.props.toggleLog()
+    this.props.changeSpecialComponent("LOG_SCREEN")
+  }
+
   render(){
     return (
       <div id="menu-bar">
         {this.props.displayCallButton ? <button onClick={this.handleCallClick}> Call </button> : ""}
         <button onClick={this.handleSaveClick}> Save </button>
         <button onClick={this.handleLoadClick}> Load </button>
+        <button onClick={this.handleLogClick}> View Log </button>
         <button onClick={this.handleMenuClick}> Quit </button>
         <div className={this.state.saveVisible || this.state.loadVisible ? 'pop-up-text' : 'hidden-text'}>{this.state.divText}</div>
       </div>
@@ -91,7 +97,8 @@ const mapStateToProps = ({ save, load, saveData, displayCallButton }) => ({ save
 const mapDispatchToProps = (dispatch) => {
   return {
     changeSpecialComponent: (command) => dispatch(CHANGE_SPECIAL_COMPONENT(command)),
-    toggleCall: () => dispatch(TOGGLE_CALL(true))
+    toggleCall: () => dispatch(TOGGLE_CALL(true)),
+    toggleLog: () => dispatch(TOGGLE_LOG(true))
   }
 }
 
