@@ -272,6 +272,15 @@ iframe {
 
 /* Section: Text container styles */
 
+#outer-text-container {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;  
+  z-index: -1;
+}
+
 .main-text-container {
   font-size: 2.5vw;
   position: fixed;

@@ -95,18 +95,20 @@ class TextContainer extends Component {
     const index = this.state.currentLine
 
     return (
-      <div className={this.handleMainContainerClass()}>
-        <div onClick={this.handleClick}>
-          {this.props.otherDisplayName ? this.props.otherDisplayName : this.props.name}
-        </div>
-        <div onClick={this.handleClick}>
-          <Text currentLine={currentChapter[index].text}
-          displayName={currentChapter[index].displayName}
-          background={currentChapter[index].background}
-          music={currentChapter[index].music}
-          soundEffect={currentChapter[index].soundEffect}
-          special={currentChapter[index].special}
-          redirectTrigger={currentChapter[index].redirectTrigger} />
+      <div id="outer-text-container" onClick={this.handleClick}>
+        <div className={this.handleMainContainerClass()}>
+          <div onClick={this.handleClick}>
+            {this.props.otherDisplayName ? this.props.otherDisplayName : this.props.name}
+          </div>
+          <div>
+            <Text currentLine={currentChapter[index].text}
+            displayName={currentChapter[index].displayName}
+            background={currentChapter[index].background}
+            music={currentChapter[index].music}
+            soundEffect={currentChapter[index].soundEffect}
+            special={currentChapter[index].special}
+            redirectTrigger={currentChapter[index].redirectTrigger} />
+          </div>
         </div>
       </div>
     )

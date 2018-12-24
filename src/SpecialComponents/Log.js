@@ -24,7 +24,9 @@ class Log extends Component {
 
       return script.map((lineObj, index) => {
         if (lineObj.text === "") return null
-        return <LogLine key={index} displayName={lineObj.displayName ? lineObj.displayName : this.props.username} displayText={lineObj.text}/>
+        return <LogLine key={index}
+        displayName={lineObj.displayName ? lineObj.displayName : this.props.username}
+        displayText={lineObj.text}/>
       }).reverse()
 
 
