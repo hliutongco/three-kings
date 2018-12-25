@@ -1,15 +1,18 @@
-import {fool, fool_laugh, underwater, underwater_music, show_answers_iv, show_answers_v, show_answers_vi} from './dictionary'
+import {queen, fool, queen_laugh, show_answers_vii, show_answers_viii, show_answers_ix} from './dictionary'
 
 export const scene_D = [
-  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "Where am I now?" },
-  { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "What is this? Am I still floating?" },
-  { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "Is this ... water?" },
-  { displayName: fool, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "\"Welcome. Your second question is one of resolve.\"" },
-  { displayName: fool, special: null, background: underwater, music: underwater_music, soundEffect: fool_laugh, text: "\"What are you willing to sacrifice?\"" },
-  { displayName: fool, special: show_answers_iv, background: underwater, music: underwater_music, soundEffect: null, text: "\"Interesting. Be honest, now. Are you willing to put your wish above all else?\"" },
-  { displayName: fool, special: show_answers_v, background: underwater, music: underwater_music, soundEffect: null, text: "\"How amusing. I hope you won't regret your decision.\"" },
-  { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "I'm starting to feel sick. I wonder if I made the right choice?" },
-  { displayName: null, special: show_answers_vi, background: underwater, music: underwater_music, soundEffect: null, text: "test" },
-  { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, redirectTrigger: true, text: "test 2" },
-
+  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "I've finally escaped. Or at least, I think I have?" },
+  { displayName: queen, special: null, background: null, music: null, soundEffect: null, text: "These next questions will assess the strength of your memory." },
+  { displayName: queen, special: null, background: null, music: null, soundEffect: queen_laugh, text: "Let's begin, shall we?" },
+  { displayName: fool, special: null, background: null, music: null, soundEffect: null, text: "Where did your accident take place?" },
+  { displayName: queen, special: null, background: null, music: null, soundEffect: null, text: "Can you remember?" },
+  { displayName: queen, special: show_answers_vii, background: null, music: null, soundEffect: null, text: "Such an odd name. Was that really it?" },
+  { displayName: queen, special: null, background: null, music: null, soundEffect: null, text: "We'll find out soon enough. Next question..." },
+  { displayName: fool, special: null, background: null, music: null, soundEffect: null, text: "Are you able to recall the items you brought into this room?" },
+  { displayName: queen, special: null, background: null, music: null, soundEffect: null, text: "Yes, yes. What were they?" },
+  { displayName: queen, special: show_answers_viii, background: null, music: null, soundEffect: null, text: "Hmm, I wonder. Are you sure that's right?" },
+  { displayName: queen, special: null, background: null, music: null, soundEffect: null, text: "Third and final question:" },
+  { displayName: fool, special: null, background: null, music: null, soundEffect: null, text: "You will see this last question by reading the first word of my last three statements." },
+  { displayName: queen, special: null, background: null, music: null, soundEffect: null, text: "What is your response?" },
+  { displayName: queen, special: show_answers_ix, background: null, music: null, soundEffect: null, text: "I hope that's correct. It would be such a pity for this to end early." },
 ]
