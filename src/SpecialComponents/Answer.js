@@ -1,44 +1,41 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {CHANGE_SPECIAL_COMPONENT, UPDATE_REDIRECT_DATA, UPDATE_SCORE, RESET_SCORE} from '../actions/index'
 
-class Answer extends Component {
-  handleClick = () => {
-    if(this.props.answerData.correct){
-      this.props.updateScore()
-    }
-
-    // redirects to the bad end if the player has a score of 0
-    // or if they have a score of 1 and did not get the last question correct
-    if(this.props.answerData.check_score){
-      if(this.props.score === 1 && !this.props.answerData.correct){
-        this.props.updateRedirectData(100)
-      }
-      else if (!this.props.score) {
-        this.props.updateRedirectData(100)
-      }
-      else {
-        this.props.updateRedirectData(this.props.answerData.redirect)
-      }
-
-      // clear score to 0 after score has been checked
-      this.props.clearScore()
-    }
-    else if(this.props.answerData.redirect){
-      this.props.updateRedirectData(this.props.answerData.redirect)
-    }
-
-    this.props.changeSpecialComponent(null)
+const handleClick = (props) => {
+  if(props.answerData.correct){
+    props.updateScore()
   }
 
-  render(){
-    return (
-      <div>
-        <button onClick={this.handleClick}>{this.props.answerData.text}</button>
-      </div>
-    )
+  // redirects to the bad end if the player has a score of 0
+  // or if they have a score of 1 and did not get the last question correct
+  if(props.answerData.check_score){
+    if(props.score === 1 && !props.answerData.correct){
+      props.updateRedirectData(100)
+    }
+    else if (!props.score) {
+      props.updateRedirectData(100)
+    }
+    else {
+      props.updateRedirectData(props.answerData.redirect)
+    }
+
+    // clear score to 0 after score has been checked
+    props.clearScore()
+  }
+  else if(props.answerData.redirect){
+    props.updateRedirectData(props.answerData.redirect)
   }
 
+  props.changeSpecialComponent(null)
+}
+
+const Answer = (props) => {
+  return (
+    <div>
+      <button onClick={() => handleClick(props)}>{props.answerData.text}</button>
+    </div>
+  )
 }
 
 const mapStateToProps = ({score}) => ({score})

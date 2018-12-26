@@ -1,4 +1,4 @@
-import React, {Fragment, Component} from 'react';
+import React, {Fragment} from 'react';
 import Username from '../SpecialComponents/Username';
 import QuitLoadSave from '../SpecialComponents/QuitLoadSave';
 import Instructions from '../SpecialComponents/Instructions';
@@ -7,44 +7,41 @@ import Log from '../SpecialComponents/Log';
 import {CHANGE_ANSWERS} from '../actions/index'
 import {connect} from 'react-redux';
 
-// This component conditionally renders all files in the SpecialComponents folder
-class SpecialComponent extends Component {
+const renderComponent = (props) => {
 
-  renderComponent(){
-
-    // If the prop is a function, that function is returning
-    // some answer options that need to be rendered
-    // by the AnswerContainer component
-    if(typeof(this.props.specialComponent) === "function"){
-      this.props.changeAnswers(this.props.specialComponent());
-      return <AnswerContainer />
-    }
-
-    switch(this.props.specialComponent){
-      case "QUIT_SCREEN":
-        return <QuitLoadSave quitLoadOrSave="quit" />
-      case "LOAD_SCREEN":
-        return <QuitLoadSave quitLoadOrSave="load" />
-      case "SAVE_SCREEN":
-        return <QuitLoadSave quitLoadOrSave="save" />
-      case "LOG_SCREEN":
-        return <Log />
-      case "SET_USERNAME":
-        return <Username />
-      case "SHOW_INSTRUCTIONS":
-        return <Instructions />
-      default:
-        return null;
-    }
+  // If the prop is a function, that function is returning
+  // some answer options that need to be rendered
+  // by the AnswerContainer component
+  if(typeof(props.specialComponent) === "function"){
+    props.changeAnswers(props.specialComponent());
+    return <AnswerContainer />
   }
 
-  render(){
+  switch(props.specialComponent){
+    case "QUIT_SCREEN":
+    return <QuitLoadSave quitLoadOrSave="quit" />
+    case "LOAD_SCREEN":
+    return <QuitLoadSave quitLoadOrSave="load" />
+    case "SAVE_SCREEN":
+    return <QuitLoadSave quitLoadOrSave="save" />
+    case "LOG_SCREEN":
+    return <Log />
+    case "SET_USERNAME":
+    return <Username />
+    case "SHOW_INSTRUCTIONS":
+    return <Instructions />
+    default:
+    return null;
+  }
+}
+
+// This component conditionally renders all files in the SpecialComponents folder
+const SpecialComponent = (props) => {
     return (
       <Fragment>
-        {this.renderComponent()}
+        {renderComponent(props)}
       </Fragment>
     )
-  }
 }
 
 const mapStateToProps = ({ specialComponent }) => ({ specialComponent })

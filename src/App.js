@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import TextContainer from './TextComponents/TextContainer'
 import AudioContainer from './MainContainers/AudioContainer'
 import MusicContainer from './MainContainers/MusicContainer'
@@ -8,29 +8,26 @@ import MenuContainer from './MenuComponents/MenuContainer'
 import MainMenu from './MenuComponents/MainMenu'
 import {connect} from 'react-redux';
 
-class App extends Component {
+const handleRender = (props) => {
+  return props.toggleMenu ?
+  <Fragment>
+  <TextContainer />
+  <MenuContainer />
+  <SpecialComponent />
+  </Fragment>
+  :
+  <MainMenu />
+}
 
-  handleRender = () => {
-    return this.props.toggleMenu ?
-      <Fragment>
-        <TextContainer />
-        <MenuContainer />
-        <SpecialComponent />
-      </Fragment>
-      :
-      <MainMenu />
-  }
-
-  render() {
-    return (
-      <Fragment>
-        <Background />
-        <MusicContainer />
-        <AudioContainer />
-        {this.handleRender()}
-      </Fragment>
-    )
-  }
+const App = (props) => {
+  return (
+    <Fragment>
+      <Background />
+      <MusicContainer />
+      <AudioContainer />
+      {handleRender(props)}
+    </Fragment>
+  )
 }
 
 const mapStateToProps = ({ load, toggleMenu }) => ({ load, toggleMenu })

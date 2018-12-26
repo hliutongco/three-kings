@@ -1,26 +1,17 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import MenuBar from './MenuBar';
 
-class MenuContainer extends Component {
-  state = {
-    collapsed: true
-  }
+const MenuContainer = (props) => {
 
-  handleClick = () => {
-    this.setState((prevState) => {
-      return {collapsed: !prevState.collapsed}
-    })
-  }
+  const [collapsed, toggleCollapsed] = useState(true);
 
-  render(){
-    return (
-      <div id="menu-container">
-        Menu
-        {this.state.collapsed ? "" : <MenuBar />}
-        <div id="menu-arrow-button" onClick={this.handleClick}>{this.state.collapsed ?  "⬇" : "⬆"}</div>
-      </div>
-    )
-  }
+  return (
+    <div id="menu-container">
+      Menu
+      {collapsed ? "" : <MenuBar />}
+      <div id="menu-arrow-button" onClick={() => toggleCollapsed(!collapsed)}>{collapsed ?  "⬇" : "⬆"}</div>
+    </div>
+  )
 }
 
 export default MenuContainer;

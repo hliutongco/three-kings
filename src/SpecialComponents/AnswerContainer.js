@@ -1,20 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Answer from './Answer'
 import {connect} from 'react-redux';
 
-class AnswerContainer extends Component {
-  renderAnswers = () => {
-    return this.props.answers.map((answer, index) => <Answer key={index} answerData={answer}/>)
-  }
+const renderAnswers = (props) => {
+  return props.answers.map((answer, index) => <Answer key={index} answerData={answer}/>)
+}
 
-  render(){
-    return (
-      <div id="answer-container">
-        {this.renderAnswers()}
-      </div>
-    )
-  }
-
+const AnswerContainer = (props) => {
+  return (
+    <div id="answer-container">
+      {renderAnswers(props)}
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => {

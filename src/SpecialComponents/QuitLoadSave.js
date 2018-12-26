@@ -1,42 +1,39 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {TOGGLE_SAVE, TOGGLE_MENU, TOGGLE_LOAD, CHANGE_SPECIAL_COMPONENT} from '../actions/index';
 import {connect} from 'react-redux';
 
-class QuitLoadSave extends Component {
-
-  handleYes = () => {
-    switch(this.props.quitLoadOrSave){
-      case "quit":
-        this.props.toggleMenu();
-        if(this.props.load) this.props.unloadGame()
-        break;
-      case "load":
-        this.props.toggleLoad();
-        this.props.changeSpecialComponent(null)
-        break;
-      case "save":
-        this.props.toggleSave();
-        this.props.changeSpecialComponent(null)
-        break;
-      default:
-        return
-    }
+const handleYes = (props) => {
+  switch(props.quitLoadOrSave){
+    case "quit":
+    props.toggleMenu();
+    if(props.load) props.unloadGame()
+    break;
+    case "load":
+    props.toggleLoad();
+    props.changeSpecialComponent(null)
+    break;
+    case "save":
+    props.toggleSave();
+    props.changeSpecialComponent(null)
+    break;
+    default:
+    return
   }
+}
 
-  handleNo = () => {
-    this.props.changeSpecialComponent(null)
-  }
+const handleNo = (props) => {
+  props.changeSpecialComponent(null)
+}
 
-  render(){
-    return (
-      <div id="quit-screen">
-        <h3>Are you sure you want to {this.props.quitLoadOrSave}?</h3>
-        <p>{this.props.quitLoadOrSave === "save" ? "" : "You will lose any unsaved progress."}</p>
-        <button onClick={this.handleYes}>Yes</button>
-        <button onClick={this.handleNo}>No</button>
-      </div>
-    )
-  }
+const QuitLoadSave = (props) => {
+  return (
+    <div id="quit-screen">
+      <h3>Are you sure you want to {props.quitLoadOrSave}?</h3>
+      <p>{props.quitLoadOrSave === "save" ? "" : "You will lose any unsaved progress."}</p>
+      <button onClick={() => handleYes(props)}>Yes</button>
+      <button onClick={() => handleNo(props)}>No</button>
+    </div>
+  )
 }
 
 const mapStateToProps = ({ load }) => ({ load })

@@ -8,17 +8,17 @@ class Background extends Component {
     background: null
   }
 
-  componentWillReceiveProps(nextProps){
-    if(nextProps.background !== this.props.background){
-      this.setState({background: nextProps.background});
-    }
-  }
-
   render(){
     return (
       <div id="background-container" className={this.state.background}>
       </div>
     )
+  }
+  
+  componentDidUpdate(prevProps){
+    if(this.props.background !== prevProps.background){
+      this.setState({background: this.props.background});
+    }
   }
 }
 
