@@ -46,9 +46,11 @@ export const show_answers_iii_b = () => [{text: "", correct: true, redirect: 8, 
 
 // Scene D
 
+export const stars = "stars"
+export const harp_song = "https://s3.us-east-2.amazonaws.com/three-kings/harp_song.mp3"
 export const show_answers_vii = () => [{text: "Graystone Peak", correct: false}, {text: "Eldridge Hills", correct: true}, {text: "Lightsea Cliffs", correct: false}]
 export const show_answers_viii = () => [{text: "A phone and a photo", correct: false}, {text: "A photo and a candle", correct: false}, {text: "A candle and a phone", correct: true}]
-export const show_answers_ix = () => [{text: "The bedroom", correct: false, check_score: true}, {text: "The accident", correct: false, check_score: true}, {text: "The dark room", correct: true, check_score: true}]
+export const show_answers_ix = () => [{text: "The bedroom", correct: false, redirect: 10, check_score: true}, {text: "The accident", correct: false, redirect: 10, check_score: true}, {text: "The dark room", correct: true, redirect: 10, check_score: true}]
 
 // Scene E
 
@@ -57,4 +59,4 @@ export const underwater_music = "https://s3.us-east-2.amazonaws.com/three-kings/
 export const phone_vibration = "https://s3.us-east-2.amazonaws.com/three-kings/cellphone-vibration.mp3"
 export const show_answers_iv = () => [{text: "My wish", correct: false}, {text: "Jinghua", correct: true}]
 export const show_answers_v = () => [{text: "Yes", correct: true}, {text: "No", correct: false}]
-export const show_answers_vi = () => [{text: "Stay", check_score: true, correct: true, redirect: 10}, {text: "Leave", redirect: 100}]
+export const show_answers_vi = () => [{text: "Stay", check_score: true, correct: true, redirect: 11}, {text: "Leave", redirect: 101}]

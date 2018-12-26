@@ -19,6 +19,10 @@
   background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/dark_void.jpg");
 }
 
+.stars {
+  background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/stars.jpg");
+}
+
 .underwater {
   background-image: url("https://s3.us-east-2.amazonaws.com/three-kings/underwater.jpg");
 }
