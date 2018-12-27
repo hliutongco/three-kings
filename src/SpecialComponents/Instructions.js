@@ -8,7 +8,7 @@ class Instructions extends Component {
   }
 
   componentDidMount = () => {
-    // this creates a 1-second delay before showing the isntructions
+    // this creates a 1-second delay before showing the instructions
     setTimeout(() => this.setState({delayActivated: false}), 1000)
   }
 

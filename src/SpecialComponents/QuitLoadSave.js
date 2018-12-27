@@ -5,19 +5,19 @@ import {connect} from 'react-redux';
 const handleYes = (props) => {
   switch(props.quitLoadOrSave){
     case "quit":
-    props.toggleMenu();
-    if(props.load) props.unloadGame()
-    break;
+      props.toggleMenu();
+      // if(props.load) props.unloadGame()
+      break;
     case "load":
-    props.toggleLoad();
-    props.changeSpecialComponent(null)
-    break;
+      props.toggleLoad();
+      props.changeSpecialComponent(null)
+      break;
     case "save":
-    props.toggleSave();
-    props.changeSpecialComponent(null)
-    break;
+      props.toggleSave();
+      props.changeSpecialComponent(null)
+      break;
     default:
-    return
+      return
   }
 }
 
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch) => {
     toggleSave: () => dispatch(TOGGLE_SAVE(true)),
     toggleLoad: () => dispatch(TOGGLE_LOAD(true)),
     toggleMenu: () => dispatch(TOGGLE_MENU(false)),
-    unloadGame: () => dispatch(TOGGLE_LOAD(false)),
+    // unloadGame: () => dispatch(TOGGLE_LOAD(false)),
     changeSpecialComponent: (command) => dispatch(CHANGE_SPECIAL_COMPONENT(command))
   }
 }

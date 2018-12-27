@@ -270,6 +270,44 @@ iframe {
   }
 }
 
+/* 6. Call Screen */
+
+#call-container {
+  background-color: $black;
+  text-align: center;
+
+  @include no-select;
+  @include pop-up;
+
+  div.main-text-container {
+    position: static;
+    margin: 5vh 10vw;
+  }
+
+  button {
+    margin: 0 1vw;
+  }
+}
+
+/* 7. End Screen */
+
+#end-screen {
+  background-color: $black;
+  text-align: center;
+  padding-top: 20vh;
+
+  @include no-select;
+  @include pop-up;
+
+  h2 {
+    font-size: 5vw;
+  }
+
+  h3 {
+    font-size: 3vw;
+  }
+}
+
 /* Section: Text container styles */
 
 #outer-text-container {
@@ -277,7 +315,7 @@ iframe {
   top: 0; left: 0;
   height: 100%;
   width: 100%;
-  background-size: cover;  
+  background-size: cover;
   z-index: -1;
 }
 

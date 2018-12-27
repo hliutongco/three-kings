@@ -1,4 +1,4 @@
-import {bedroom} from './dictionary'
+import {bedroom, neutral_ending} from './dictionary'
 
 export const neutral_end = [
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "When I come to, the dark room is unnaturally cold." },
@@ -10,5 +10,5 @@ export const neutral_end = [
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "The only thing I'm certain of is that the ritual failed." },
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "I failed." },
   { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "..." },
-  { displayName: null, special: null, background: null, music: null, soundEffect: null, text: "" },
+  { displayName: null, special: neutral_ending, background: null, music: null, soundEffect: null, text: "" },
 ]

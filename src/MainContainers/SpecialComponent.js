@@ -4,6 +4,8 @@ import QuitLoadSave from '../SpecialComponents/QuitLoadSave';
 import Instructions from '../SpecialComponents/Instructions';
 import AnswerContainer from '../SpecialComponents/AnswerContainer';
 import Log from '../SpecialComponents/Log';
+import Call from '../SpecialComponents/Call';
+import EndScreen from '../SpecialComponents/EndScreen';
 import {CHANGE_ANSWERS} from '../actions/index'
 import {connect} from 'react-redux';
 
@@ -19,19 +21,27 @@ const renderComponent = (props) => {
 
   switch(props.specialComponent){
     case "QUIT_SCREEN":
-    return <QuitLoadSave quitLoadOrSave="quit" />
+      return <QuitLoadSave quitLoadOrSave="quit" />
     case "LOAD_SCREEN":
-    return <QuitLoadSave quitLoadOrSave="load" />
+      return <QuitLoadSave quitLoadOrSave="load" />
     case "SAVE_SCREEN":
-    return <QuitLoadSave quitLoadOrSave="save" />
+      return <QuitLoadSave quitLoadOrSave="save" />
     case "LOG_SCREEN":
-    return <Log />
+      return <Log />
+    case "CALL_SCREEN":
+      return <Call />
     case "SET_USERNAME":
-    return <Username />
+      return <Username />
     case "SHOW_INSTRUCTIONS":
-    return <Instructions />
+      return <Instructions />
+    case "NEUTRAL_END":
+      return <EndScreen ending="Escape" />
+    case "TRUTH_END":
+      return <EndScreen ending="Truth" />
+    case "LIES_END":
+      return <EndScreen ending="Lies" />
     default:
-    return null;
+      return null;
   }
 }
 

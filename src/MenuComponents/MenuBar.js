@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {CHANGE_SPECIAL_COMPONENT, TOGGLE_CALL, TOGGLE_LOG} from '../actions/index';
+import {CHANGE_SPECIAL_COMPONENT, TOGGLE_LOG} from '../actions/index';
 
 class MenuBar extends Component {
   state = {
@@ -42,7 +42,7 @@ class MenuBar extends Component {
   }
 
   handleCallClick = () => {
-    this.props.toggleCall()
+    this.props.changeSpecialComponent("CALL_SCREEN")
   }
 
   handleLogClick = () => {
@@ -97,7 +97,6 @@ const mapStateToProps = ({ save, load, saveData, displayCallButton }) => ({ save
 const mapDispatchToProps = (dispatch) => {
   return {
     changeSpecialComponent: (command) => dispatch(CHANGE_SPECIAL_COMPONENT(command)),
-    toggleCall: () => dispatch(TOGGLE_CALL(true)),
     toggleLog: () => dispatch(TOGGLE_LOG(true))
   }
 }

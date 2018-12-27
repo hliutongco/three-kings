@@ -60,3 +60,7 @@ export const phone_vibration = "https://s3.us-east-2.amazonaws.com/three-kings/c
 export const show_answers_iv = () => [{text: "My wish", correct: false}, {text: "Jinghua", correct: true}]
 export const show_answers_v = () => [{text: "Yes", correct: true}, {text: "No", correct: false}]
 export const show_answers_vi = () => [{text: "Stay", check_score: true, correct: true, redirect: 11}, {text: "Leave", redirect: 101}]
+
+// Endings
+
+export const neutral_ending = "NEUTRAL_END"
