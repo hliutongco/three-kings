@@ -23,41 +23,26 @@ class MenuBar extends Component {
     })
   }
 
-  handleSaveClick = () => {
-    this.props.changeSpecialComponent("SAVE_SCREEN")
-  }
-
-
-  handleLoadClick = () => {
-    if (!this.props.saveData) {
+  handleClick = (action) => {
+    if (!this.props.saveData && action === "LOAD_SCREEN") {
       this.showWarning();
       return
     }
+    else if (action === "LOG_SCREEN") {
+      this.props.toggleLog()
+    }
 
-    this.props.changeSpecialComponent("LOAD_SCREEN")
-  }
-
-  handleMenuClick = () => {
-    this.props.changeSpecialComponent("QUIT_SCREEN")
-  }
-
-  handleCallClick = () => {
-    this.props.changeSpecialComponent("CALL_SCREEN")
-  }
-
-  handleLogClick = () => {
-    this.props.toggleLog()
-    this.props.changeSpecialComponent("LOG_SCREEN")
+    this.props.changeSpecialComponent(action)
   }
 
   render(){
     return (
       <div id="menu-bar">
-        {this.props.displayCallButton ? <button onClick={this.handleCallClick}> Call </button> : ""}
-        <button onClick={this.handleSaveClick}> Save </button>
-        <button onClick={this.handleLoadClick}> Load </button>
-        <button onClick={this.handleLogClick}> View Log </button>
-        <button onClick={this.handleMenuClick}> Quit </button>
+        {this.props.displayCallButton ? <button onClick={() => this.handleClick("CALL_SCREEN")}> Call </button> : ""}
+        <button onClick={() => this.handleClick("SAVE_SCREEN")}> Save </button>
+        <button onClick={() => this.handleClick("LOAD_SCREEN")}> Load </button>
+        <button onClick={() => this.handleClick("LOG_SCREEN")}> View Log </button>
+        <button onClick={() => this.handleClick("QUIT_SCREEN")}> Quit </button>
         <div className={this.state.saveVisible || this.state.loadVisible ? 'pop-up-text' : 'hidden-text'}>{this.state.divText}</div>
       </div>
     )

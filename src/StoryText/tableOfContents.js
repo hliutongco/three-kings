@@ -9,8 +9,11 @@ import {scene_C_iii_b} from './scene_c_iii'
 import {scene_C_iv} from './scene_c_iv'
 import {scene_D} from './scene_d'
 import {scene_E} from './scene_e'
-import {bad_end} from './bad_end'
-import {neutral_end} from './neutral_end'
+import {scene_F} from './scene_f'
+import {bad_end} from './endings/bad_end'
+import {neutral_end} from './endings/neutral_end'
+import {truth_end} from './endings/truth_end'
+import {lies_end} from './endings/lies_end'
 
 // This functions as a table of contents
 export const chapterData = {
@@ -25,11 +28,11 @@ export const chapterData = {
   8: scene_C_iv,
   9: scene_D,
   10: scene_E,
-  // 11: scene_F,
+  11: scene_F,
   100: bad_end,
   101: neutral_end,
-  // 102: truth_end,
-  // 103: lies_end
+  102: truth_end,
+  103: lies_end
 }
 
 // chapters where call button should be enabled

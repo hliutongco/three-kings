@@ -7,7 +7,7 @@ export const scene_C_i = [
   { displayName: null, special: null, background: dark_void, music: dark_void_music, soundEffect: null, text: "...Huh?" },
   { displayName: null, special: null, background: dark_void, music: dark_void_music, soundEffect: null, text: "Haven't I done this before?" },
   { displayName: queen, special: null, background: dark_void, music: dark_void_music, soundEffect: null, text: "\"Let us begin. Our first question is one of honesty.\"" },
-  { displayName: queen, special: null, background: dark_void, music: dark_void_music, soundEffect: queen_laugh, text: "\"Why have you come to us?\"" },
+  { displayName: queen, special: null, background: dark_void, music: dark_void_music, soundEffect: queen_laugh, text: "\"What do you desire?\"" },
   { displayName: queen, special: show_answers_i, background: dark_void, music: dark_void_music, soundEffect: null, text: "How bold. And how foolish." },
   { displayName: null, special: null, background: null, music: dark_void_music, soundEffect: null, text: "I suddenly feel drowsy. Something is ... wrong." }
 ]

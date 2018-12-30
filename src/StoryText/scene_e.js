@@ -17,8 +17,8 @@ export const scene_E = [
   { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "Before she can say anything more, the call suddenly goes dead." },
   { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "Doubt clouds my mind. What is going on? Is this a trick?" },
   { displayName: null, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "Is Jinghua really in danger?" },
-  { displayName: fool, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "Which will you choose, human? Will you heed your friend's warning?" },
-  { displayName: fool, special: show_answers_vi, background: underwater, music: underwater_music, soundEffect: null, text: "What a curious one you are. I hope you chose wisely." },
+  { displayName: fool, special: null, background: underwater, music: underwater_music, soundEffect: null, text: "\"Which will you choose, human? Will you heed your friend's warning?\"" },
+  { displayName: fool, special: show_answers_vi, background: underwater, music: underwater_music, soundEffect: null, text: "\"What a curious one you are. I hope you chose wisely.\"" },
   { displayName: null, special: null, background: underwater, music: fade_music, soundEffect: null, text: "I can feel myself fading once more. Jinghua ... please be okay." },
   { displayName: null, special: null, background: underwater, music: null, soundEffect: null, redirectTrigger: true, text: "" },
 

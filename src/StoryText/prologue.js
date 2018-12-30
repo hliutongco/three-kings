@@ -10,13 +10,17 @@ export const prologueData = [
 
   { displayName: anonymous, special: null, background: forest_clearing, music: null, soundEffect: ringtone, text: "Several calls blare out from the phone in my coat pocket, all of which go unanswered." },
 
-  { displayName: anonymous, special: null, background: forest_clearing, music: null, soundEffect: null, text: "Then, just as the first rays of sunlight crest over the Eldridge Hills, I awaken with a sharp gasp of breathe." },
+  { displayName: anonymous, special: null, background: forest_clearing, music: null, soundEffect: null, text: "Eventually, I see the outline of a figure standing at the summit of the nearest hill, observing the wreckage below." },
 
-  { displayName: anonymous, special: null, background: null, music: null, soundEffect: null, text: "And then the dream ends." },
+  { displayName: anonymous, special: null, background: forest_clearing, music: null, soundEffect: null, text: "It is too dark for me to see the stranger clearly. Whoever it is, they do nothing to help me." },
 
-  { displayName: anonymous, special: null, background: null, music: null, soundEffect: null, text: "Why do I keep dreaming of that night?" },
+  { displayName: anonymous, special: null, background: forest_clearing, music: null, soundEffect: null, text: "Then, just as the first rays of sunlight crest over the hills..." },
 
-  { displayName: anonymous, special: null, background: null, music: null, soundEffect: null, text: "And why couldn't I have woken up sooner? If I had gotten help sooner, the surgeons could've saved my..." },
+  { displayName: anonymous, special: null, background: null, music: null, soundEffect: null, text: "The dream suddenly ends." },
+
+  { displayName: anonymous, special: null, background: null, music: null, soundEffect: null, text: "Why do I keep dreaming of that night? And was there really someone else there?" },
+
+  { displayName: anonymous, special: null, background: null, music: null, soundEffect: null, text: "If there really was another person, why didn't they call for help? If I had gotten help sooner, the surgeons could've saved my..." },
 
   { displayName: anonymous, special: null, background: null, music: null, soundEffect: null, text: "..." },
 

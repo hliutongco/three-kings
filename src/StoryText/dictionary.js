@@ -29,11 +29,11 @@ export const door_close = "https://s3.us-east-2.amazonaws.com/three-kings/door_c
 export const show_instructions = "SHOW_INSTRUCTIONS"
 export const dark_void = "dark-void"
 export const dark_void_music = "https://s3.us-east-2.amazonaws.com/three-kings/question-one-music.mp3"
-export const show_answers = () => [{text: "To see the supernatural", correct: false}, {text: "To regain something I lost", correct: true}]
+export const show_answers = () => [{text: "To gain power", correct: false}, {text: "To get revenge", correct: false}, {text: "To be healed", correct: true}]
 
 // Scene C-i
 
-export const show_answers_i = () => [{text: "Because I am curious", correct: false}, {text: "Because I am desperate", correct: true}]
+export const show_answers_i = () => [{text: "Riches", correct: false}, {text: "Good health", correct: true}, {text: "All of the above", correct: false}]
 
 // Scene C-ii
 
@@ -41,14 +41,14 @@ export const show_answers_ii = () => [{text: "Sight", redirect: 7}, {text: "Hear
 
 // Scene C-iii
 
-export const show_answers_iii = () => [{text: "So I can walk again", correct: true, redirect: 8, check_score: true}, {text: "So I can brag about the ritual", correct: false, redirect: 8, check_score: true}]
-export const show_answers_iii_b = () => [{text: "", correct: true, redirect: 8, check_score: true}, {text: "", correct: false, redirect: 8, check_score: true}]
+export const show_answers_iii = () => [{text: "To die", correct: false, redirect: 8, check_score: true}, {text: "To live", correct: true, redirect: 8, check_score: true}, {text: "To die", correct: false, redirect: 8, check_score: true}]
+export const show_answers_iii_b = () => [{text: "", correct: false, redirect: 8, check_score: true}, {text: "", correct: true, redirect: 8, check_score: true}, {text: "", correct: false, redirect: 8, check_score: true}]
 
 // Scene D
 
 export const stars = "stars"
 export const harp_song = "https://s3.us-east-2.amazonaws.com/three-kings/harp_song.mp3"
-export const show_answers_vii = () => [{text: "Graystone Peak", correct: false}, {text: "Eldridge Hills", correct: true}, {text: "Lightsea Cliffs", correct: false}]
+export const show_answers_vii = () => [{text: "A lamp", correct: false}, {text: "An electric fan", correct: true}, {text: "A black curtain", correct: false}]
 export const show_answers_viii = () => [{text: "A phone and a photo", correct: false}, {text: "A photo and a candle", correct: false}, {text: "A candle and a phone", correct: true}]
 export const show_answers_ix = () => [{text: "The bedroom", correct: false, redirect: 10, check_score: true}, {text: "The accident", correct: false, redirect: 10, check_score: true}, {text: "The dark room", correct: true, redirect: 10, check_score: true}]
 
@@ -61,6 +61,13 @@ export const show_answers_iv = () => [{text: "My wish", correct: false}, {text: 
 export const show_answers_v = () => [{text: "Yes", correct: true}, {text: "No", correct: false}]
 export const show_answers_vi = () => [{text: "Stay", check_score: true, correct: true, redirect: 11}, {text: "Leave", redirect: 101}]
 
+// Scene F
+
+export const show_answers_x = () => [{text: "A truth", redirect: 102}, {text: "A lie", redirect: 103}]
+export const show_answers_xi = () => [{text: "Confess"}]
+
 // Endings
 
 export const neutral_ending = "NEUTRAL_END"
+export const truth_ending = "TRUTH_END"
+export const lies_ending = "LIES_END"

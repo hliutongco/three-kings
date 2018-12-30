@@ -123,8 +123,10 @@ class TextContainer extends Component {
       localStorage.setItem("line", `${this.state.currentLine}`);
       localStorage.setItem("username", `${this.props.name}`);
       localStorage.setItem("score", `${this.props.score}`);
-      localStorage.setItem("currentChapter", `${this.props.checkpoint.currentChapter}`)
-      localStorage.setItem("currentLine", `${this.props.checkpoint.currentLine}`)
+      if(this.props.checkpoint){
+        localStorage.setItem("currentChapter", `${this.props.checkpoint.currentChapter}`)
+        localStorage.setItem("currentLine", `${this.props.checkpoint.currentLine}`)
+      }
     }
 
     // The load is coming from the buttons on the menu

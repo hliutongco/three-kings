@@ -6,12 +6,12 @@ const Call = (props) => {
   const [delayActivated, toggleDelay] = useState(false)
 
   const handleYes = () => {
-    props.toggleCall()
     toggleDelay(!delayActivated)
 
     setTimeout(() => {
       toggleDelay(!delayActivated)
       props.changeSpecialComponent(null)
+      props.toggleCall()
     }, 1000)
   }
 
