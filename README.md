@@ -1,6 +1,6 @@
 # Three Kings: A Visual Novel
 
-![Three Kings](./public/demo.png)
+![Three Kings](./public/example_screen.png)
 
 **Live Demo: http://three-kings.herokuapp.com/**
 
