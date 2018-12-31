@@ -2,13 +2,13 @@
 
 ![Three Kings](./public/demo.png)
 
-Live Demo: http://three-kings.herokuapp.com/
+**Live Demo: http://three-kings.herokuapp.com/**
 
-*Three Kings* is a short interactive story. The choices made throughout the second half of the game will affect the story.
+#### Description
 
-The total gameplay length is about 10 to 20 minutes. The player can discover a total of 4 different endings.
+*Three Kings* is a short interactive story. The choices made throughout the second half of the game will affect the story. The total gameplay length is about 10 to 20 minutes. The player can discover a total of 4 different endings.
 
-This app has the following features:
+#### This app has the following features:
 
 * A menu that you can collapse and expand
 * The ability to save and load your game progress
