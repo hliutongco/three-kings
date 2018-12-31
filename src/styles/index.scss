@@ -100,12 +100,15 @@ iframe {
   z-index: -1;
 
   @include no-select;
+
+  span {
+    cursor: pointer;
+  }
 }
 
 #menu-arrow-button {
   border: none;
   color: $white;
-  cursor: pointer;
 }
 
 #menu-bar{

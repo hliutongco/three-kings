@@ -47,6 +47,7 @@ class TextContainer extends Component {
       this.props.updateCheckpoint(null)
     }
 
+    // this checks whether the call button should be enabled
     this.enableCallButton()
 
     setTimeout(() => {

@@ -3,6 +3,12 @@ import {connect} from 'react-redux';
 import {CHANGE_SPECIAL_COMPONENT, UPDATE_REDIRECT_DATA, UPDATE_SCORE, RESET_SCORE} from '../actions/index'
 
 const handleClick = (props) => {
+
+  if(props.answerData.clearScore){
+    // clear score to 0 at the start of each round
+    props.clearScore()
+  }
+
   if(props.answerData.correct){
     props.updateScore()
   }
@@ -19,9 +25,6 @@ const handleClick = (props) => {
     else {
       props.updateRedirectData(props.answerData.redirect)
     }
-
-    // clear score to 0 after score has been checked
-    props.clearScore()
   }
   else if(props.answerData.redirect){
     props.updateRedirectData(props.answerData.redirect)

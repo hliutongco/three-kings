@@ -33,7 +33,7 @@ export const show_answers = () => [{text: "To gain power", correct: false}, {tex
 
 // Scene C-i
 
-export const show_answers_i = () => [{text: "Riches", correct: false}, {text: "Good health", correct: true}, {text: "All of the above", correct: false}]
+export const show_answers_i = () => [{text: "Riches", correct: false, clearScore: true}, {text: "Good health", correct: true, clearScore: true}, {text: "All of the above", correct: false, clearScore: true}]
 
 // Scene C-ii
 
@@ -48,7 +48,7 @@ export const show_answers_iii_b = () => [{text: "", correct: false, redirect: 8,
 
 export const stars = "stars"
 export const harp_song = "https://s3.us-east-2.amazonaws.com/three-kings/harp_song.mp3"
-export const show_answers_vii = () => [{text: "A lamp", correct: false}, {text: "An electric fan", correct: true}, {text: "A black curtain", correct: false}]
+export const show_answers_vii = () => [{text: "A lamp", correct: false, clearScore: true}, {text: "An electric fan", correct: true, clearScore: true}, {text: "A black curtain", correct: false, clearScore: true}]
 export const show_answers_viii = () => [{text: "A phone and a photo", correct: false}, {text: "A photo and a candle", correct: false}, {text: "A candle and a phone", correct: true}]
 export const show_answers_ix = () => [{text: "The bedroom", correct: false, redirect: 10, check_score: true}, {text: "The accident", correct: false, redirect: 10, check_score: true}, {text: "The dark room", correct: true, redirect: 10, check_score: true}]
 
@@ -57,7 +57,7 @@ export const show_answers_ix = () => [{text: "The bedroom", correct: false, redi
 export const underwater = "underwater"
 export const underwater_music = "https://s3.us-east-2.amazonaws.com/three-kings/underwater_song.mp3"
 export const phone_vibration = "https://s3.us-east-2.amazonaws.com/three-kings/cellphone-vibration.mp3"
-export const show_answers_iv = () => [{text: "My wish", correct: false}, {text: "Jinghua", correct: true}]
+export const show_answers_iv = () => [{text: "My wish", correct: false, clearScore: true}, {text: "Jinghua", correct: true, clearScore: true}]
 export const show_answers_v = () => [{text: "Yes", correct: true}, {text: "No", correct: false}]
 export const show_answers_vi = () => [{text: "Stay", check_score: true, correct: true, redirect: 11}, {text: "Leave", redirect: 101}]
 

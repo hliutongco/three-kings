@@ -9,7 +9,7 @@ const MenuContainer = (props) => {
     <div id="menu-container">
       Menu
       {collapsed ? "" : <MenuBar />}
-      <div id="menu-arrow-button" onClick={() => toggleCollapsed(!collapsed)}>{collapsed ?  "⬇" : "⬆"}</div>
+      <div id="menu-arrow-button"><span onClick={() => toggleCollapsed(!collapsed)}>{collapsed ?  "⬇" : "⬆"}</span></div>
     </div>
   )
 }
