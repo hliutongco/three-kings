@@ -48,9 +48,9 @@ export const show_answers_iii_b = () => [{text: "", correct: false, redirect: 8,
 
 export const stars = "stars"
 export const harp_song = "https://s3.us-east-2.amazonaws.com/three-kings/harp_song.mp3"
-export const show_answers_vii = () => [{text: "A lamp", correct: false, clearScore: true}, {text: "An electric fan", correct: true, clearScore: true}, {text: "A black curtain", correct: false, clearScore: true}]
+export const show_answers_vii = () => [{text: "In front of you", correct: false, clearScore: true}, {text: "Behind you", correct: true, clearScore: true}, {text: "Next to you", correct: false, clearScore: true}]
 export const show_answers_viii = () => [{text: "A phone and a photo", correct: false}, {text: "A photo and a candle", correct: false}, {text: "A candle and a phone", correct: true}]
-export const show_answers_ix = () => [{text: "The bedroom", correct: false, redirect: 10, check_score: true}, {text: "The accident", correct: false, redirect: 10, check_score: true}, {text: "The dark room", correct: true, redirect: 10, check_score: true}]
+export const show_answers_ix = () => [{text: "The bedroom", correct: false, redirect: 10, check_score: true}, {text: "The forest", correct: false, redirect: 10, check_score: true}, {text: "The dark room", correct: true, redirect: 10, check_score: true}]
 
 // Scene E
 

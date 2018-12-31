@@ -7,7 +7,7 @@ export const scene_D = [
   { displayName: null, special: null, background: stars, music: harp_song, soundEffect: null, text: "All too soon, a taunting voice shatters the silence." },
   { displayName: queen, special: null, background: stars, music: harp_song, soundEffect: queen_laugh, text: "\"These next questions will assess the strength of your memory.\"" },
   { displayName: queen, special: null, background: stars, music: harp_song, soundEffect: null, text: "\"Let's begin, shall we?\"" },
-  { displayName: fool, special: null, background: stars, music: harp_song, soundEffect: null, text: "\"What item is placed directly behind you?\"" },
+  { displayName: fool, special: null, background: stars, music: harp_song, soundEffect: null, text: "\"Where is the electric fan located?\"" },
   { displayName: queen, special: null, background: stars, music: harp_song, soundEffect: null, text: "\"Can you remember?\"" },
   { displayName: queen, special: show_answers_vii, background: stars, music: harp_song, soundEffect: null, text: "\"Hmm. Was that really it?\"" },
   { displayName: queen, special: null, background: stars, music: harp_song, soundEffect: null, text: "\"We'll find out soon enough. Next question...\"" },
