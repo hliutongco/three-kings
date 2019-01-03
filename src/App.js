@@ -11,9 +11,9 @@ import {connect} from 'react-redux';
 const handleRender = (props) => {
   return props.toggleMenu ?
   <Fragment>
-  <TextContainer />
-  <MenuContainer />
-  <SpecialComponent />
+    <TextContainer />
+    <MenuContainer />
+    <SpecialComponent />
   </Fragment>
   :
   <MainMenu />

@@ -8,7 +8,7 @@ class MainMenu extends Component {
   }
 
   componentDidMount() {
-    this.props.changeBackground("dark-room")
+    this.props.changeBackground("menu-bg")
 
     const currentChapter = localStorage.getItem("chapterNumber")
     const currentLine = localStorage.getItem("line")
@@ -53,6 +53,7 @@ class MainMenu extends Component {
   render(){
     return (
       <div onClick={this.handleClick} id="main-menu">
+        <h1>♕</h1>
         <h1>Three Kings</h1>
         {
         this.state.clicked ?

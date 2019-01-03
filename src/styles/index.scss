@@ -122,15 +122,22 @@ iframe {
 /* Section: Main Menu */
 
 #main-menu {
-  margin-top: 20vh;
-  font-size: 3.5vw;
+  margin-top: 15vh;
+  font-size: 4vw;
+  font-family: monospace;
   text-align: center;
   text-shadow: 1px 1px $black;
 
   @include no-select;
 
+  h1 {
+
+    margin: 0;
+    padding: 0;
+  }
+
   button {
-    margin: 1vw;
+    margin: 5vh 1vw;
   }
 
   span {
@@ -139,7 +146,7 @@ iframe {
 }
 
 .blinking {
-  margin-top: 15vh;
+  margin-top: 5vh;
   animation: blinker 1s linear infinite;
 }
 
