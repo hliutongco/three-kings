@@ -29,11 +29,11 @@ export const door_close = "https://s3.us-east-2.amazonaws.com/three-kings/door_c
 export const show_instructions = "SHOW_INSTRUCTIONS"
 export const dark_void = "dark-void"
 export const dark_void_music = "https://s3.us-east-2.amazonaws.com/three-kings/question-one-music.mp3"
-export const show_answers = () => [{text: "To gain power", correct: false}, {text: "To get revenge", correct: false}, {text: "To be healed", correct: true}]
+export const show_answers = () => [{text: "To gain power", correct: false, clearScore: true}, {text: "To get revenge", correct: false, clearScore: true}, {text: "To be healed", correct: true, clearScore: true}]
 
 // Scene C-i
 
-export const show_answers_i = () => [{text: "Riches", correct: false, clearScore: true}, {text: "Good health", correct: true, clearScore: true}, {text: "All of the above", correct: false, clearScore: true}]
+export const show_answers_i = () => [{text: "Riches", correct: false}, {text: "Good health", correct: true}, {text: "All of the above", correct: false}]
 
 // Scene C-ii
 
