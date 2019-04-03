@@ -20,6 +20,7 @@ const handleRender = (props) => {
 }
 
 const App = (props) => {
+
   return (
     <Fragment>
       <Background />

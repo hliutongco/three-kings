@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@firebase/app": "^0.3.13",
+    "@firebase/storage": "^0.2.12",
     "node-sass": "^4.11.0",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-redux": "^5.1.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "^2.1.8",
     "redux": "^4.0.1",
     "sass-loader": "^7.1.0"
   },

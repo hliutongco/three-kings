@@ -26,7 +26,7 @@ class MainMenu extends Component {
 
   handleStartClick = () => {
     this.setState({clicked: true})
-    this.props.changeMusic("https://s3.us-east-2.amazonaws.com/three-kings/main_menu.mp3")
+    this.props.changeMusic("https://firebasestorage.googleapis.com/v0/b/three-kings-game.appspot.com/o/main_menu.mp3?alt=media&token=fb24cd54-1a9c-4a36-a4ee-585e89925c65")
   }
 
   handleClick = (event) => {
